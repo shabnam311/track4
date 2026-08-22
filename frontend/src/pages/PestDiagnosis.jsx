@@ -12,36 +12,44 @@ const PestDiagnosis = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const handleSend = async (photoSimulate = false) => {
+    if (!input.trim() && !photoSimulate) return;
     
-    const newMsg = { sender: 'user', text: input };
-    setMessages([...messages, newMsg]);
+    const newMsg = { sender: 'user', type: photoSimulate ? 'image_mock' : 'text', text: input };
+    setMessages(prev => [...prev, newMsg]);
+    setIsTyping(true);
+    const sentText = input;
     setInput('');
-    setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const res = await fetch(`${apiUrl}/api/pest/diagnose`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          text: sentText || "What is wrong with this leaf?", 
+          imageBase64: photoSimulate ? "data:image/jpeg;base64,mock..." : null 
+        })
+      });
+      const data = await res.json();
+      
       setMessages(prev => [...prev, {
         sender: 'bot',
-        text: 'Analyzing...',
-        type: 'diagnosis_card'
+        type: 'diagnosis_card',
+        data
       }]);
-      setIsTyping(false);
-    }, 1500);
-  };
-
-  const handlePhotoUpload = () => {
-    setMessages([...messages, { sender: 'user', type: 'image_mock' }]);
-    setIsTyping(true);
-    
-    setTimeout(() => {
+    } catch (e) {
+      // Fallback
       setMessages(prev => [...prev, {
         sender: 'bot',
-        type: 'diagnosis_card'
+        type: 'diagnosis_card',
+        data: { disease_name: 'Fall Armyworm (Offline)', confidence: 92, treatment: 'Apply neem oil (5%).' }
       }]);
-      setIsTyping(false);
-    }, 2000);
+    }
+    setIsTyping(false);
   };
+
+  const handlePhotoUpload = () => handleSend(true);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col font-sans">
@@ -83,10 +91,10 @@ const PestDiagnosis = () => {
                 <div className="mt-1 space-y-3 w-64">
                   <div className="flex items-center gap-2 text-red-600 font-bold border-b border-gray-100 pb-2">
                     <AlertTriangle className="w-5 h-5" />
-                    <span>Fall Armyworm (Spodoptera)</span>
+                    <span>{m.data?.disease_name}</span>
                   </div>
-                  <p className="text-sm text-gray-600 font-medium">Confidence: 92%</p>
-                  <p className="text-xs text-gray-500">Treatment: Apply neem oil (5%) or contact local agri-extension for biological controls.</p>
+                  <p className="text-sm text-gray-600 font-medium">Confidence: {m.data?.confidence}%</p>
+                  <p className="text-xs text-gray-500">Treatment: {m.data?.treatment}</p>
                   
                   {/* Federated Learning Microcopy */}
                   <div className="bg-blue-50 p-2 rounded-lg mt-2 border border-blue-100 flex gap-2">

@@ -20,25 +20,27 @@ const PracticeReporting = () => {
   const [isVerifying, setIsVerifying] = useState(false);
   const [result, setResult] = useState(null);
 
+  const [selectedPlot, setSelectedPlot] = useState('P101');
+  const [practiceType, setPracticeType] = useState('no-till');
+
   const mockPlots = [
     { id: 'P101', name: 'Wheat Field (2 Acres)', location: 'Bhopal Dist.' }
   ];
 
   const handleVerify = async () => {
     setIsVerifying(true);
-    // Simulate API call to FastAPI backend
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     try {
-      const res = await fetch('http://localhost:3000/api/practices/verify', {
+      const res = await fetch(`${apiUrl}/api/practices/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plot_id: 'P101', practice_type: 'no-till' })
+        body: JSON.stringify({ plot_id: selectedPlot, practice_type: practiceType })
       });
       const data = await res.json();
       setResult(data);
       setStep(2);
     } catch (e) {
       console.error(e);
-      // Fallback if backend isn't running
       setTimeout(() => {
         setResult({
           status: 'Verified',
@@ -74,21 +76,31 @@ const PracticeReporting = () => {
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Select Plot</label>
               {mockPlots.map(p => (
-                <div key={p.id} className="border-2 border-green-500 bg-green-50 rounded-xl p-4 flex justify-between items-center cursor-pointer">
+                <div 
+                  key={p.id} 
+                  onClick={() => setSelectedPlot(p.id)}
+                  className={`border-2 rounded-xl p-4 flex justify-between items-center cursor-pointer ${selectedPlot === p.id ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'}`}
+                >
                   <div>
                     <p className="font-bold text-gray-900">{p.name}</p>
                     <p className="text-xs text-gray-500 flex items-center gap-1 mt-1"><MapPin className="w-3 h-3"/> {p.location}</p>
                   </div>
-                  <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
+                  {selectedPlot === p.id && (
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
 
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Practice Adopted</label>
-              <select className="w-full bg-white border border-gray-300 rounded-xl p-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+              <select 
+                value={practiceType} 
+                onChange={(e) => setPracticeType(e.target.value)}
+                className="w-full bg-white border border-gray-300 rounded-xl p-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
                 <option value="no-till">No-Till / Zero Tillage</option>
                 <option value="cover-crop">Cover Cropping</option>
                 <option value="mulch">Crop Residue Mulching</option>

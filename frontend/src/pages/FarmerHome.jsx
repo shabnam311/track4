@@ -7,15 +7,17 @@ const FarmerHome = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
+
   return (
-    <div className="min-h-screen bg-green-50 p-4 pb-20 font-sans">
+    <div className="min-h-screen bg-sky-100 p-4 pb-20 font-sans">
       <header className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">{t('bhoomi_setu')}</h1>
-          <p className="text-sm text-green-700 font-medium">Hello, Anjali (Madhya Pradesh)</p>
+          <h1 className="text-2xl font-serif font-bold text-soil-900">{t('bhoomi_setu')}</h1>
+          <p className="text-sm text-leaf-600 font-medium">Hello, {farmer.name} ({farmer.location})</p>
         </div>
-        <div className="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center text-green-800 font-bold">
-          AN
+        <div className="w-10 h-10 bg-leaf-500 rounded-full flex items-center justify-center text-white font-bold">
+          {farmer.name.substring(0, 2).toUpperCase()}
         </div>
       </header>
 

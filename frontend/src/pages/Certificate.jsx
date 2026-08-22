@@ -6,6 +6,7 @@ import { ArrowLeft, Share2, Download, Award, ShieldCheck } from 'lucide-react';
 const Certificate = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
 
   return (
     <div className="min-h-screen bg-gray-100 pb-20 font-sans">
@@ -15,8 +16,8 @@ const Certificate = () => {
           <h1 className="text-lg font-bold text-gray-900">Regen Passport</h1>
         </div>
         <div className="flex gap-4">
-          <button className="text-gray-600"><Share2 className="w-5 h-5" /></button>
-          <button className="text-gray-600"><Download className="w-5 h-5" /></button>
+          <button onClick={() => alert("Link copied to clipboard!")} className="text-gray-600"><Share2 className="w-5 h-5" /></button>
+          <button onClick={() => window.print()} className="text-gray-600"><Download className="w-5 h-5" /></button>
         </div>
       </header>
 
@@ -39,8 +40,8 @@ const Certificate = () => {
           <div className="p-6 space-y-6">
             <div className="text-center border-b border-gray-100 pb-6">
               <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Farmer</p>
-              <p className="text-xl font-bold text-gray-900">Anjali</p>
-              <p className="text-sm text-gray-600">ID: F001 • Madhya Pradesh, IN</p>
+              <p className="text-xl font-bold text-gray-900">{farmer.name}</p>
+              <p className="text-sm text-gray-600">ID: {farmer.name.substring(0,2).toUpperCase()}001 • {farmer.location}, {farmer.country === 'India' ? 'IN' : 'BR'}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-center">

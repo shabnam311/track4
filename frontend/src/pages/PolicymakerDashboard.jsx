@@ -124,7 +124,7 @@ const PolicymakerDashboard = () => {
             <p className="text-xs text-gray-400">Dr. Meera • Ministry of Agriculture</p>
           </div>
         </div>
-        <button className="flex items-center gap-2 bg-gray-800 px-3 py-1.5 rounded-lg text-sm hover:bg-gray-700 transition">
+        <button onClick={() => alert("Brief exported successfully!")} className="flex items-center gap-2 bg-gray-800 px-3 py-1.5 rounded-lg text-sm hover:bg-gray-700 transition">
           <Download className="w-4 h-4" /> Export Brief
         </button>
       </header>
