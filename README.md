@@ -1,16 +1,16 @@
 # Bhoomi Setu (भूमि सेतु) — AgriN Verify
-### A Federated Regenerative-Practice Passport & Cross-Border Pest Radar for BRICS Smallholder Farmers
+### A Federated Regenerative-Practice Passport & Cross-District Pest Radar for Indian Smallholder Farmers
 
 **Track:** Track 4 — AgriN & Regenerative Agricultural Intelligence
-**BRICS Theme:** Cooperation
+**Theme:** Cooperation
 
 ## What is this?
-Bhoomi Setu is a Digital Public Good designed to plug directly into the **BRICS Network on Digital Agriculture** and **AgriN**. It solves two structural problems:
+Bhoomi Setu is a Digital Public Good designed to plug directly into the **National Network on Digital Agriculture** and **AgriN**. It solves two structural problems:
 1. **Verification Poverty**: Uses free Sentinel-1/2 satellite data to verify regenerative practices (no-till, cover cropping) at a smallholder scale, issuing a tamper-evident "Regen Passport" so farmers can access green finance without expensive manual audits.
-2. **Border-Blind Pest Intelligence**: Uses Federated Learning to detect crop disease patterns across borders. Raw photos never leave the farmer's country, but statistical threat signals (gradients) cross borders to provide early warnings to partner nations.
+2. **Federated Pest Intelligence**: Uses Federated Learning to detect crop disease patterns across states. Raw photos never leave the farmer's device, but statistical threat signals (gradients) cross district/state lines to provide early warnings to partner nodes.
 
 ## Tech Stack
-- **Frontend**: React 19, Vite, Tailwind CSS, Lucide React, Leaflet, Recharts, i18next (English, Hindi, Tamil, Portuguese)
+- **Frontend**: React 19, Vite, Tailwind CSS, Lucide React, Leaflet, Recharts, i18next (English, Hindi, Tamil, Marathi, Punjabi, Gujarati, Bengali, Telugu)
 - **Backend**: Node.js, Express, `@google/genai` (Gemini 2.5 Flash)
 - **Blockchain**: (Simulated via client-side hash and QR credentialing)
 
@@ -37,23 +37,23 @@ npm run dev
 
 ## Key Demo Journeys
 
-1. **Anjali (Indian Farmer)**:
+1. **Anjali (Madhya Pradesh)**:
    - Uses **Hindi**.
    - Logs "No-Till Farming" for her Wheat plot. 
    - Backend calls Gemini to analyze simulated NDTI satellite data.
    - Views her **Regen Passport** with a verifiable local QR code.
-2. **Carlos (Brazilian Farmer)**:
-   - Uses **Portuguese**.
-   - Navigates to the app and immediately receives a **cross-border early warning** on his dashboard about a Spodoptera mutation detected via the federated network.
+2. **Karthik (Tamil Nadu)**:
+   - Uses **Tamil**.
+   - Navigates to the app and immediately receives a **cross-state early warning** on his dashboard about a Spodoptera mutation detected via the federated network.
    - Takes a photo of a leaf spot (`PestDiagnosis.jsx`), securely getting treatment advice from Gemini 2.5 Flash.
-3. **Dr. Meera (Indian Policymaker)**:
+3. **Dr. Meera (National Policymaker)**:
    - Clicks "Continue as Policymaker".
-   - Views the **Global Pest Radar**, seeing local outbreaks vs. federated early signals.
+   - Views the **National Pest Radar**, seeing local outbreaks vs. federated early signals.
    - Views **Compound Risk Districts** where low regenerative adoption correlates with high pest risk.
 
 ## Disclaimers for Judges
 - **AI Integration**: The AI integration is **real**. The backend connects to Gemini 2.5 Flash using the `@google/genai` SDK to process satellite NDTI curves and analyze pest diagnosis text/images. A robust fallback mechanism exists if the API key is missing or quota is exhausted.
-- **Federated Learning**: Raw images are strictly local. We simulate a federated gradient sync through the UI and cross-border alerts.
+- **Federated Learning**: Raw images are strictly local. We simulate a federated gradient sync through the UI and cross-state alerts.
 - **Verifiable Credentials**: The "Blockchain Anchor" QR code is generated dynamically on the client side (`qrcode.react`) to demonstrate offline, decentralized verification without relying on external APIs during a live demo.
 - **WhatsApp/IVR**: The UI simulates these channels for demo purposes.
 - **Blockchain Hash**: The certificate hashes are generated locally, simulating a real ledger anchor.
