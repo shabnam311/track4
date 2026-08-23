@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck, Loader2 } from 'lucide-react';
 
 const PestDiagnosis = () => {
   const { t } = useTranslation();
@@ -52,94 +52,92 @@ const PestDiagnosis = () => {
   const handlePhotoUpload = () => handleSend(true);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col font-sans">
-      <header className="bg-green-700 text-white p-4 shadow-md flex items-center gap-3">
-        <button onClick={() => navigate('/farmer')} className="text-white"><ArrowLeft /></button>
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-            <span className="text-green-700 font-bold text-xs">AI</span>
-          </div>
+    <div className="min-h-screen bg-paper flex flex-col font-sans text-soil-900">
+      <header className="bg-white p-4 shadow-sm flex items-center justify-between border-b border-black/10">
+        <div className="flex items-center gap-3">
+          <button onClick={() => navigate('/farmer')} className="text-soil-700 hover:text-soil-900 transition"><ArrowLeft /></button>
           <div>
-            <h1 className="text-sm font-bold leading-tight">Bhoomi Setu Assistant</h1>
-            <p className="text-[10px] text-green-200">Online</p>
+            <h1 className="text-lg font-bold font-serif">AgriN Expert</h1>
+            <p className="text-xs text-leaf-600 font-bold flex items-center gap-1">
+              <span className="w-2 h-2 bg-leaf-500 rounded-full animate-pulse"></span> Online
+            </p>
           </div>
         </div>
       </header>
 
-      <div className="flex-1 p-4 overflow-y-auto space-y-4 pb-24" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cubes.png')" }}>
-        {/* Warning label */}
-        <div className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-md text-center shadow-sm w-full max-w-xs mx-auto">
-          Simulated WhatsApp UI for Demo
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-black/5 bg-blend-overlay">
+        <div className="bg-wheat-100 p-3 rounded-2xl text-center text-xs text-soil-700 font-bold border border-black/10 mb-6 mx-4">
+          Chat is private. Your photos help train the BRICS early-warning model anonymously.
         </div>
 
-        {messages.map((m, idx) => (
-          <div key={idx} className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] rounded-2xl p-3 shadow-sm relative ${
-              m.sender === 'user' ? 'bg-green-100 rounded-tr-none' : 'bg-white rounded-tl-none'
+        {messages.map((m, i) => (
+          <div key={i} className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${
+              m.sender === 'user' 
+                ? 'bg-soil-900 text-wheat-100 rounded-tr-none' 
+                : 'bg-white text-soil-900 border border-black/10 rounded-tl-none'
             }`}>
-              {m.text && <p className="text-sm text-gray-800">{m.text}</p>}
+              {m.type === 'text' && <p>{m.text}</p>}
               
               {m.type === 'image_mock' && (
-                <div className="w-48 h-48 bg-gray-300 rounded-lg flex items-center justify-center relative overflow-hidden">
-                   <div className="absolute inset-0 bg-green-500 opacity-20"></div>
-                   <ImageIcon className="w-8 h-8 text-white opacity-50" />
-                   <p className="absolute bottom-2 left-2 text-white text-xs font-bold bg-black/50 px-2 py-1 rounded">leaf_spot.jpg</p>
+                <div className="relative">
+                  <div className="w-48 h-48 bg-black/10 rounded-xl mb-2 flex items-center justify-center border border-black/5">
+                    <ImageIcon className="w-8 h-8 text-white/50" />
+                  </div>
+                  <p className="text-xs text-wheat-400 font-medium italic">leaf_spot_scan.jpg</p>
                 </div>
               )}
 
               {m.type === 'diagnosis_card' && (
                 <div className="mt-1 space-y-3 w-64">
-                  <div className="flex items-center gap-2 text-red-600 font-bold border-b border-gray-100 pb-2">
+                  <div className="flex items-center gap-2 text-red-600 font-bold border-b border-black/5 pb-2">
                     <AlertTriangle className="w-5 h-5" />
                     <span>{m.data?.disease_name}</span>
                   </div>
-                  <p className="text-sm text-gray-600 font-medium">Confidence: {m.data?.confidence}%</p>
-                  <p className="text-xs text-gray-500">Treatment: {m.data?.treatment}</p>
+                  <p className="text-sm text-soil-700 font-medium">Confidence: <span className="text-soil-900 font-bold">{m.data?.confidence}%</span></p>
+                  <p className="text-xs text-soil-700 leading-relaxed">Treatment: {m.data?.treatment}</p>
                   
                   {/* Federated Learning Microcopy */}
-                  <div className="bg-blue-50 p-2 rounded-lg mt-2 border border-blue-100 flex gap-2">
-                    <ShieldCheck className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-[10px] text-blue-800 leading-tight">
+                  <div className="bg-sky-100 p-3 rounded-xl mt-2 border border-leaf-500/20 flex gap-2">
+                    <ShieldCheck className="w-4 h-4 text-leaf-600 flex-shrink-0" />
+                    <p className="text-[10px] text-leaf-600 font-bold leading-tight">
                       Your anonymous report helps the BRICS federated network detect outbreaks earlier. No photos are shared across borders.
                     </p>
                   </div>
                 </div>
               )}
-              
-              <span className="text-[9px] text-gray-400 absolute bottom-1 right-2">
-                12:00 PM
-              </span>
             </div>
           </div>
         ))}
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm flex gap-1">
-              <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-              <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+            <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-black/10">
+              <Loader2 className="w-5 h-5 animate-spin text-leaf-500" />
             </div>
           </div>
         )}
       </div>
 
-      <div className="bg-gray-100 p-2 fixed bottom-0 left-0 right-0">
-        <div className="flex items-center gap-2 bg-white rounded-full p-1 shadow-sm border border-gray-200">
-          <button onClick={handlePhotoUpload} className="p-2 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition">
-            <Camera className="w-6 h-6" />
+      <div className="bg-white p-4 border-t border-black/10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div className="flex items-center gap-2">
+          <button 
+            onClick={handlePhotoUpload}
+            className="p-3 text-leaf-600 bg-sky-100 rounded-full hover:bg-leaf-50 transition"
+          >
+            <Camera className="w-5 h-5" />
           </button>
           <input 
             type="text" 
-            placeholder="Type a message..." 
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-            className="flex-1 bg-transparent outline-none text-sm px-2"
+            onKeyPress={(e) => e.key === 'Enter' && handleSend(false)}
+            placeholder="Describe the symptoms..."
+            className="flex-1 bg-paper border border-black/10 outline-none text-sm p-3 rounded-full text-soil-900 placeholder:text-soil-700/50 font-medium focus:border-leaf-500 transition"
           />
           <button 
             onClick={() => handleSend(false)}
             disabled={!input.trim()}
-            className="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-leaf-600 text-white p-3 rounded-full hover:bg-leaf-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             <Send className="w-5 h-5" />
           </button>

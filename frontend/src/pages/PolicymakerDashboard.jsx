@@ -115,38 +115,39 @@ const PolicymakerDashboard = () => {
   const [activeTab, setActiveTab] = useState('radar'); // 'radar' or 'network'
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-      <header className="bg-gray-900 text-white p-4 shadow-md flex items-center justify-between">
+    <div className="min-h-screen bg-paper flex flex-col font-sans text-soil-900">
+      <header className="bg-soil-900 p-4 shadow-sm flex items-center justify-between text-wheat-100 relative z-10">
         <div className="flex items-center gap-3">
-          <button onClick={() => navigate('/')} className="text-gray-400 hover:text-white"><ArrowLeft /></button>
-          <div>
-            <h1 className="text-lg font-bold">BRICS AgriN Dashboard</h1>
-            <p className="text-xs text-gray-400">Dr. Meera • Ministry of Agriculture</p>
-          </div>
+          <button onClick={() => navigate('/')} className="text-wheat-400 hover:text-white transition"><ArrowLeft /></button>
+          <h1 className="text-lg font-bold font-serif uppercase tracking-wider">AgriN BRICS Dashboard</h1>
         </div>
-        <button onClick={() => alert("Brief exported successfully!")} className="flex items-center gap-2 bg-gray-800 px-3 py-1.5 rounded-lg text-sm hover:bg-gray-700 transition">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 bg-leaf-500 rounded-full animate-pulse"></span>
+          <span className="text-xs font-bold tracking-widest uppercase">Live Network</span>
+        </div>
+        <button onClick={() => alert("Brief exported successfully!")} className="hidden md:flex items-center gap-2 bg-soil-800 border border-soil-700 px-3 py-1.5 rounded-xl text-sm font-bold hover:bg-soil-700 transition">
           <Download className="w-4 h-4" /> Export Brief
         </button>
       </header>
 
-      <div className="p-6 max-w-7xl mx-auto space-y-6">
+      <div className="p-4 md:p-8 flex-1 max-w-7xl mx-auto w-full">
+        <div className="flex gap-4 mb-6 overflow-x-auto pb-2">
+          <button 
+            onClick={() => setActiveTab('radar')}
+            className={`px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition flex items-center gap-2 shadow-sm ${activeTab === 'radar' ? 'bg-soil-900 text-wheat-100' : 'bg-white text-soil-700 hover:bg-black/5 border border-black/10'}`}
+          >
+            <Activity className="w-4 h-4" /> Global Pest Radar
+          </button>
+          <button 
+            onClick={() => setActiveTab('passport')}
+            className={`px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition flex items-center gap-2 shadow-sm ${activeTab === 'passport' ? 'bg-soil-900 text-wheat-100' : 'bg-white text-soil-700 hover:bg-black/5 border border-black/10'}`}
+          >
+            <ShieldCheck className="w-4 h-4" /> Regen Passports
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex bg-white rounded-lg p-1 shadow-sm border border-gray-200 inline-flex">
-              <button 
-                onClick={() => setActiveTab('radar')}
-                className={`px-4 py-2 rounded-md text-sm font-bold flex items-center gap-2 ${activeTab === 'radar' ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-              >
-                <MapIcon className="w-4 h-4" /> Threat Radar & Regen Map
-              </button>
-              <button 
-                onClick={() => setActiveTab('network')}
-                className={`px-4 py-2 rounded-md text-sm font-bold flex items-center gap-2 ${activeTab === 'network' ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-              >
-                <Network className="w-4 h-4" /> Federated Network Status
-              </button>
-            </div>
-
             <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
               {activeTab === 'radar' ? <ThreatRadarMap /> : <FederatedNetwork />}
             </div>

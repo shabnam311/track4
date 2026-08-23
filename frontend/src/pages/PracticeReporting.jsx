@@ -81,34 +81,31 @@ const PracticeReporting = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      <header className="bg-white p-4 shadow-sm flex items-center gap-3">
-        <button onClick={() => navigate('/farmer')} className="text-gray-600"><ArrowLeft /></button>
-        <h1 className="text-lg font-bold text-gray-900">{t('report_practice')}</h1>
+    <div className="min-h-screen bg-paper p-4 pb-20 font-sans text-soil-900">
+      <header className="flex items-center gap-3 mb-6">
+        <button onClick={() => navigate('/farmer')} className="text-soil-700 hover:text-soil-900 transition"><ArrowLeft /></button>
+        <h1 className="text-xl font-serif font-bold text-soil-900">{t('report_practice')}</h1>
       </header>
 
-      <div className="p-4">
-        {step === 1 && (
-          <div className="space-y-6">
-            <div className="bg-blue-50 text-blue-800 p-4 rounded-xl text-sm border border-blue-100 flex gap-3">
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-              <p>Your practice will be verified automatically using satellite imagery (Sentinel-1/2). No field visit required.</p>
-            </div>
-
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Select Plot</label>
+      {step === 1 && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-black/5">
+            <h2 className="font-bold text-soil-900 mb-4">Verification Details</h2>
+            
+            <div className="mb-6">
+              <label className="block text-sm font-bold text-soil-700 mb-2 uppercase tracking-wide">Select Plot</label>
               {mockPlots.map(p => (
                 <div 
                   key={p.id} 
                   onClick={() => setSelectedPlot(p.id)}
-                  className={`border-2 rounded-xl p-4 flex justify-between items-center cursor-pointer ${selectedPlot === p.id ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'}`}
+                  className={`border-[1.5px] rounded-2xl p-4 flex justify-between items-center cursor-pointer mb-3 transition ${selectedPlot === p.id ? 'border-leaf-500 bg-sky-100' : 'border-black/10 bg-white hover:bg-black/5'}`}
                 >
                   <div>
-                    <p className="font-bold text-gray-900">{p.name}</p>
-                    <p className="text-xs text-gray-500 flex items-center gap-1 mt-1"><MapPin className="w-3 h-3"/> {p.location}</p>
+                    <p className="font-bold text-soil-900">{p.name}</p>
+                    <p className="text-xs text-soil-700 flex items-center gap-1 mt-1 font-medium"><MapPin className="w-3 h-3"/> {p.location}</p>
                   </div>
                   {selectedPlot === p.id && (
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                    <div className="w-6 h-6 rounded-full bg-leaf-500 flex items-center justify-center">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
                   )}
@@ -117,67 +114,63 @@ const PracticeReporting = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-gray-700 mb-2">Practice Adopted</label>
+              <label className="block text-sm font-bold text-soil-700 mb-2 uppercase tracking-wide">Practice Adopted</label>
               <select 
                 value={practiceType} 
                 onChange={(e) => setPracticeType(e.target.value)}
-                className="w-full bg-white border border-gray-300 rounded-xl p-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full bg-white border-[1.5px] border-black/10 rounded-2xl p-4 shadow-sm focus:outline-none focus:border-leaf-500 text-soil-900 font-bold"
               >
                 <option value="no-till">No-Till / Zero Tillage</option>
                 <option value="cover-crop">Cover Cropping</option>
                 <option value="mulch">Crop Residue Mulching</option>
               </select>
             </div>
-
-            <button 
-              onClick={handleVerify}
-              disabled={isVerifying}
-              className="w-full bg-green-600 text-white font-bold rounded-xl p-4 shadow-sm flex items-center justify-center gap-2 disabled:bg-green-400"
-            >
-              {isVerifying ? (
-                <><Loader2 className="animate-spin w-5 h-5" /> Verifying via Satellite...</>
-              ) : (
-                'Submit for Verification'
-              )}
-            </button>
           </div>
-        )}
 
-        {step === 2 && result && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle2 className="w-10 h-10 text-green-600" />
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-1">Verified!</h2>
-              <p className="text-green-700 font-medium mb-4">Confidence Score: {result.confidence_score}%</p>
-              
-              <div className="bg-gray-50 rounded-xl p-4 text-left border border-gray-200">
-                <p className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Satellite Evidence (NDTI)</p>
-                <div className="h-48 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={result.ndti_series}>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                      <XAxis dataKey="date" tick={{fontSize: 12}} />
-                      <YAxis tick={{fontSize: 12}} domain={[0, 0.4]} />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="value" stroke="#16a34a" strokeWidth={3} dot={{r: 4}} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-                <p className="text-xs text-gray-500 mt-2 text-center italic">The spike in NDTI confirms crop residue cover without soil disturbance.</p>
-              </div>
+          <button 
+            onClick={handleVerify}
+            disabled={isVerifying || !selectedPlot}
+            className="w-full bg-soil-900 text-wheat-100 p-4 rounded-2xl font-bold flex justify-center items-center gap-2 hover:-translate-y-0.5 transition disabled:opacity-70 shadow-md"
+          >
+            {isVerifying ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Request Satellite Verification'}
+          </button>
+        </div>
+      )}
+
+      {step === 2 && result && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-3xl shadow-sm border border-black/5 p-6 text-center">
+            <div className="w-20 h-20 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle2 className="w-10 h-10 text-leaf-600" />
             </div>
-
-            <button 
-              onClick={() => navigate('/farmer/certificate')}
-              className="w-full bg-green-600 text-white font-bold rounded-xl p-4 shadow-sm"
-            >
-              View Regen Certificate
-            </button>
+            <h2 className="text-2xl font-serif font-bold text-soil-900 mb-1">Verified!</h2>
+            <p className="text-leaf-600 font-bold mb-6">Confidence Score: {result.confidence_score}%</p>
+            
+            <div className="bg-paper rounded-2xl p-4 text-left border border-black/5">
+              <p className="text-[10px] font-bold text-soil-700 mb-4 uppercase tracking-wide">Satellite Evidence (NDTI)</p>
+              <div className="h-48 w-full -ml-4">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={result.ndti_series}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(34,40,28,0.1)" />
+                    <XAxis dataKey="date" tick={{fontSize: 10, fill: '#3a4530'}} axisLine={false} tickLine={false} />
+                    <YAxis tick={{fontSize: 10, fill: '#3a4530'}} domain={[0, 0.4]} axisLine={false} tickLine={false} />
+                    <Tooltip contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                    <Line type="monotone" dataKey="value" stroke="#4f7942" strokeWidth={3} dot={{r: 4, fill: '#4f7942', strokeWidth: 0}} activeDot={{r: 6}} />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-xs text-soil-700 mt-3 text-center italic font-medium">The curve confirms successful {result.practice_type} without soil disturbance.</p>
+            </div>
           </div>
-        )}
-      </div>
+
+          <button 
+            onClick={() => navigate('/farmer/certificate')}
+            className="w-full bg-soil-900 text-wheat-100 p-4 rounded-2xl font-bold flex justify-center items-center gap-2 hover:-translate-y-0.5 transition shadow-md"
+          >
+            View Regen Certificate <span>→</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
