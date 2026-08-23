@@ -115,6 +115,14 @@ const ThreatRadarMap = () => {
 
 const PolicymakerDashboard = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  
+  const compoundRiskDistricts = [
+    { district: 'Coimbatore (TN)', regenScore: '32/100', threatLevel: 'CRITICAL' },
+    { district: 'Bhopal (MP)', regenScore: '45/100', threatLevel: 'HIGH' },
+    { district: 'Ludhiana (PB)', regenScore: '78/100', threatLevel: 'ELEVATED' },
+  ];
+
   const [activeTab, setActiveTab] = useState('radar');
 
   return (
