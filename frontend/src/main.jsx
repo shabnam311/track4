@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
 import './i18n';
@@ -21,12 +22,12 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-paper p-8 flex flex-col items-center justify-center font-sans text-soil-900 text-center">
+        <div className="min-h-screen bg-[#fbfaf6] p-8 flex flex-col items-center justify-center font-sans text-[#22281c] text-center">
           <h1 className="text-3xl font-serif font-bold text-red-600 mb-4">Something went wrong.</h1>
-          <p className="text-soil-700 mb-6 max-w-md">The application encountered an unexpected error. Please return to the home screen to continue your session.</p>
+          <p className="text-[#3a4530] mb-6 max-w-md">The application encountered an unexpected error. Please return to the home screen to continue your session.</p>
           <button 
             onClick={() => { this.setState({ hasError: false }); window.location.href = '/'; }}
-            className="bg-soil-900 text-wheat-100 px-6 py-3 rounded-full font-bold hover:bg-soil-700 transition"
+            className="bg-[#22281c] text-[#faf3e0] px-6 py-3 rounded-full font-bold hover:bg-[#3a4530] transition"
           >
             Return to Home
           </button>
@@ -41,7 +42,9 @@ class ErrorBoundary extends React.Component {
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </ErrorBoundary>
   </React.StrictMode>
 );
