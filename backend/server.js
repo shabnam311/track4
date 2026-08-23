@@ -140,4 +140,8 @@ app.post('/api/practices/verify', async (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+}
+
+module.exports = app;
