@@ -5,65 +5,49 @@ const resources = {
   en: {
     translation: {
       "bhoomi_setu": "Bhoomi Setu",
-      "farmer_anjali": "Farmer: Anjali (IN)",
-      "farmer_carlos": "Carlos (BR)",
+      "farmer_anjali": "Farmer: Anjali (MP)",
+      "farmer_karthik": "Karthik (TN)",
       "policymaker": "Continue as Policymaker",
       "report_practice": "Report Regenerative Practice",
       "pest_diagnosis": "Pest & Disease Diagnosis",
       "diagnose_crop": "Diagnose Crop",
       "my_passport": "My Passport",
       "certificate": "View Certificates",
-      "about_brics": "About Bhoomi Setu & BRICS",
-      "early_warning": "Partner network signal: possible Spodoptera mutation nearby",
+      "about_brics": "About Bhoomi Setu",
+      "early_warning": "Network signal: possible Spodoptera mutation nearby",
       "hello": "Hello"
     }
   },
   hi: {
     translation: {
       "bhoomi_setu": "भूमि सेतु",
-      "farmer_anjali": "किसान: अंजलि (IN)",
-      "farmer_carlos": "कार्लोस (BR)",
+      "farmer_anjali": "किसान: अंजलि (MP)",
+      "farmer_karthik": "कार्तिक (TN)",
       "policymaker": "नीति निर्माता के रूप में जारी रखें",
-      "report_practice": "पुनर्योजी अभ्यास दर्ज करें",
+      "report_practice": "पुनर्योजी कृषि रिपोर्ट करें",
       "pest_diagnosis": "कीट और रोग निदान",
-      "diagnose_crop": "फसल का निदान करें",
+      "diagnose_crop": "फसल निदान",
       "my_passport": "मेरा पासपोर्ट",
-      "certificate": "प्रमाण पत्र देखें",
-      "about_brics": "भूमि सेतु और ब्रिक्स के बारे में",
-      "early_warning": "चेतावनी: आस-पास स्पोडोप्टेरा उत्परिवर्तन का संकेत",
+      "certificate": "प्रमाणपत्र देखें",
+      "about_brics": "भूमि सेतु के बारे में",
+      "early_warning": "चेतावनी: आस-पास स्पोडोप्टेरा म्यूटेशन संभव है",
       "hello": "नमस्ते"
     }
   },
   ta: {
     translation: {
       "bhoomi_setu": "பூமி சேது",
-      "farmer_anjali": "விவசாயி: அஞ்சலி (IN)",
-      "farmer_carlos": "கார்லோஸ் (BR)",
+      "farmer_anjali": "விவசாயி: அஞ்சலி (MP)",
+      "farmer_karthik": "கார்த்திக் (TN)",
       "policymaker": "கொள்கை வகுப்பாளராக தொடரவும்",
       "report_practice": "மறுபிறவி நடைமுறையைப் புகாரளிக்கவும்",
       "pest_diagnosis": "பூச்சி மற்றும் நோய் கண்டறிதல்",
       "diagnose_crop": "பயிர் கண்டறிதல்",
       "my_passport": "என் பாஸ்போர்ட்",
       "certificate": "சான்றிதழ்களைக் காண்க",
-      "about_brics": "பூமி சேது & பிரிக்ஸ் பற்றி",
+      "about_brics": "பூமி சேது பற்றி",
       "early_warning": "எச்சரிக்கை: அருகில் ஸ்போடோப்டெரா மாற்றம்",
       "hello": "வணக்கம்"
-    }
-  },
-  pt: {
-    translation: {
-      "bhoomi_setu": "Bhoomi Setu",
-      "farmer_anjali": "Fazendeira: Anjali (IN)",
-      "farmer_carlos": "Carlos (BR)",
-      "policymaker": "Continuar como Formulador de Políticas",
-      "report_practice": "Relatar Prática Regenerativa",
-      "pest_diagnosis": "Diagnóstico de Pragas",
-      "diagnose_crop": "Diagnosticar Cultura",
-      "my_passport": "Meu Passaporte",
-      "certificate": "Ver Certificados",
-      "about_brics": "Sobre Bhoomi Setu e BRICS",
-      "early_warning": "Sinal da rede: possível mutação de Spodoptera nas proximidades",
-      "hello": "Olá"
     }
   }
 };

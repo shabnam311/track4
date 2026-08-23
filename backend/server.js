@@ -14,12 +14,12 @@ const MODEL = "gemini-2.5-flash"; // Updated to current active model
 // Seed Data
 const farmers = [
   { id: 'F001', name: 'Anjali', phone: '+919876543210', country: 'India', preferred_language: 'hi' },
-  { id: 'F002', name: 'Carlos', phone: '+5511987654321', country: 'Brazil', preferred_language: 'pt' }
+  { id: 'F002', name: 'Karthik', phone: '+919876543211', country: 'India', preferred_language: 'ta' }
 ];
 
 const plots = [
   { id: 'P101', farmer_id: 'F001', country: 'India', crop_type: 'Wheat', name: 'Wheat Field (2 Acres)', location: 'Bhopal Dist.', geometry: { lat: 22.9734, lng: 78.6569 } },
-  { id: 'P102', farmer_id: 'F002', country: 'Brazil', crop_type: 'Soy', name: 'Soy Field (15 Hectares)', location: 'Mato Grosso', geometry: { lat: -12.6819, lng: -56.9211 } }
+  { id: 'P102', farmer_id: 'F002', country: 'India', crop_type: 'Rice', name: 'Rice Paddy (15 Acres)', location: 'Tamil Nadu', geometry: { lat: 11.1271, lng: 78.6569 } }
 ];
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));

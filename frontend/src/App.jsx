@@ -32,20 +32,19 @@ const LandingPage = () => {
           <button onClick={() => changeLanguage('en')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'en' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>EN</button>
           <button onClick={() => changeLanguage('hi')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'hi' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>HI</button>
           <button onClick={() => changeLanguage('ta')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'ta' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>TA</button>
-          <button onClick={() => changeLanguage('pt')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'pt' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>PT</button>
         </div>
       </header>
 
       <main className="flex-1 max-w-6xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center gap-10">
         <div className="flex-1">
           <span className="inline-flex items-center gap-2 bg-sky-100 text-leaf-600 px-4 py-1.5 rounded-full text-xs font-extrabold tracking-wide mb-6">
-            ● BRICS Digital Public Good — AgriN Verify
+            ● AgriN Verify — Built for India
           </span>
           <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-soil-900 leading-tight mb-5">
-            Proof your fields <span className="font-sans text-leaf-600">बदल रहे हैं</span><br/>the climate can bank on.
+            Proof your fields <span className="font-sans text-leaf-600">for a future</span><br/>the climate can bank on.
           </h1>
           <p className="text-lg text-soil-700 max-w-prose mb-8 leading-relaxed">
-            Satellite-verified regenerative practice certificates and a cross-border pest early-warning network — built for smallholders, not just Anjali's two acres, but every acre across BRICS.
+            Satellite-verified regenerative practice certificates and an early-warning network — built for smallholders, not just Anjali's two acres, but every acre across the nation.
           </p>
           
           <div className="flex flex-col gap-3 max-w-sm">
@@ -54,13 +53,13 @@ const LandingPage = () => {
                 onClick={() => setPersona({ id: 'F001', name: 'Anjali', country: 'India', location: 'Madhya Pradesh', lang: 'hi' })}
                 className="flex-1 bg-soil-900 text-wheat-100 py-4 px-5 rounded-2xl font-bold flex justify-between items-center hover:-translate-y-0.5 transition shadow-sm"
               >
-                Farmer: Anjali (IN) <span>→</span>
+                Farmer: Anjali (MP) <span>→</span>
               </button>
               <button 
-                onClick={() => setPersona({ id: 'F002', name: 'Carlos', country: 'Brazil', location: 'Mato Grosso', lang: 'pt' })}
+                onClick={() => setPersona({ id: 'F002', name: 'Karthik', country: 'India', location: 'Tamil Nadu', lang: 'ta' })}
                 className="flex-1 bg-leaf-600 text-white py-4 px-5 rounded-2xl font-bold flex justify-between items-center hover:-translate-y-0.5 transition shadow-sm"
               >
-                Carlos (BR) <span>→</span>
+                Karthik (TN) <span>→</span>
               </button>
             </div>
             <button 
@@ -73,7 +72,7 @@ const LandingPage = () => {
               onClick={() => navigate('/about')}
               className="bg-transparent text-leaf-600 font-bold py-2 px-1 mt-2 text-left hover:underline"
             >
-              About Bhoomi Setu & BRICS Alignment →
+              About Bhoomi Setu →
             </button>
           </div>
         </div>
@@ -88,7 +87,7 @@ const LandingPage = () => {
       </main>
 
       <div className="border-t border-black/10 py-6 px-12 flex justify-center gap-8 text-sm text-soil-700 font-medium flex-wrap">
-        <span>🇮🇳 India</span><span>🇧🇷 Brazil</span><span>🇿🇦 South Africa</span><span>🇨🇳 China</span><span>🇷🇺 Russia</span>
+        <span>Madhya Pradesh</span><span>Tamil Nadu</span><span>Maharashtra</span><span>Punjab</span><span>Gujarat</span>
       </div>
     </div>
   );

@@ -68,7 +68,7 @@ const PestDiagnosis = () => {
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-black/5 bg-blend-overlay">
         <div className="bg-wheat-100 p-3 rounded-2xl text-center text-xs text-soil-700 font-bold border border-black/10 mb-6 mx-4">
-          Chat is private. Your photos help train the BRICS early-warning model anonymously.
+          Chat is private. Your photos help train the National early-warning model anonymously.
         </div>
 
         {messages.map((m, i) => (
@@ -102,7 +102,7 @@ const PestDiagnosis = () => {
                   <div className="bg-sky-100 p-3 rounded-xl mt-2 border border-leaf-500/20 flex gap-2">
                     <ShieldCheck className="w-4 h-4 text-leaf-600 flex-shrink-0" />
                     <p className="text-[10px] text-leaf-600 font-bold leading-tight">
-                      Your anonymous report helps the BRICS federated network detect outbreaks earlier. No photos are shared across borders.
+                      Your anonymous report helps the national federated network detect outbreaks earlier. No photos are shared across borders.
                     </p>
                   </div>
                 </div>

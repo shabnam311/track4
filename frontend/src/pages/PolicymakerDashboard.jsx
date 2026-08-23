@@ -8,7 +8,7 @@ const FederatedNetwork = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const nodes = ['IN', 'BR', 'ZA', 'CN', 'RU', 'ALL', 'CENTER', null];
+      const nodes = ['MP', 'TN', 'MH', 'PB', 'GJ', 'ALL', 'CENTER', null];
       setAnomaly(nodes[Math.floor(Math.random() * nodes.length)]);
     }, 2500);
     return () => clearInterval(timer);
@@ -27,7 +27,7 @@ const FederatedNetwork = () => {
       
       <div className="absolute top-4 left-4 text-wheat-100 text-xs max-w-xs z-10">
         <p className="font-bold text-white mb-1 font-serif text-sm">Live Federated Sync</p>
-        <p className="opacity-80">Models are updated locally. Only parameter gradients cross borders.</p>
+        <p className="opacity-80">Models are updated locally across states. Only parameter gradients cross district borders.</p>
         <div className="mt-4 space-y-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
@@ -40,13 +40,13 @@ const FederatedNetwork = () => {
         </div>
       </div>
 
-      {/* Center Node (Global Aggregator) */}
+      {/* Center Node (National Aggregator) */}
       <div className={`w-16 h-16 rounded-full flex items-center justify-center z-10 transition-all duration-500 ${getNodeColor('CENTER')}`}>
         <Network className="w-8 h-8 text-white" />
       </div>
 
       {/* Outer Nodes */}
-      {['IN', 'BR', 'ZA', 'CN', 'RU'].map((node, i) => {
+      {['MP', 'TN', 'MH', 'PB', 'GJ'].map((node, i) => {
         const angle = (i * 2 * Math.PI) / 5 - Math.PI / 2;
         const radius = 120;
         const x = Math.cos(angle) * radius;
@@ -95,8 +95,8 @@ const ThreatRadarMap = () => {
         </CircleMarker>
         
         {/* Early Signal (Federated) */}
-        <CircleMarker center={[-12.6, -56.9]} radius={15} pathOptions={{ color: '#c2410c', fillColor: '#f97316', fillOpacity: 0.4, dashArray: '4' }} className="animate-pulse">
-          <Popup><strong>Early Signal (Brazil):</strong> High probability of Spodoptera mutation based on network gradient update.</Popup>
+        <CircleMarker center={[11.1, 78.6]} radius={15} pathOptions={{ color: '#c2410c', fillColor: '#f97316', fillOpacity: 0.4, dashArray: '4' }} className="animate-pulse">
+          <Popup><strong>Early Signal (Tamil Nadu):</strong> High probability of Spodoptera mutation based on network gradient update.</Popup>
         </CircleMarker>
       </MapContainer>
     </div>
@@ -112,7 +112,7 @@ const PolicymakerDashboard = () => {
       <header className="bg-soil-900 p-4 shadow-sm flex items-center justify-between text-wheat-100 relative z-10">
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/')} className="text-wheat-400 hover:text-white transition"><ArrowLeft /></button>
-          <h1 className="text-lg font-bold font-serif uppercase tracking-wider">AgriN BRICS Dashboard</h1>
+          <h1 className="text-lg font-bold font-serif uppercase tracking-wider">AgriN National Dashboard</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-leaf-500 rounded-full animate-pulse"></span>
@@ -129,7 +129,7 @@ const PolicymakerDashboard = () => {
             onClick={() => setActiveTab('radar')}
             className={`px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition flex items-center gap-2 shadow-sm ${activeTab === 'radar' ? 'bg-soil-900 text-wheat-100' : 'bg-white text-soil-700 hover:bg-black/5 border border-black/10'}`}
           >
-            <Activity className="w-4 h-4" /> Global Pest Radar
+            <Activity className="w-4 h-4" /> National Pest Radar
           </button>
           <button 
             onClick={() => setActiveTab('network')}
@@ -164,17 +164,17 @@ const PolicymakerDashboard = () => {
                 </thead>
                 <tbody className="divide-y divide-black/5 text-[13px]">
                   <tr className="bg-red-500/5 hover:bg-red-500/10 transition">
-                    <td className="px-4 py-3 font-bold text-soil-900">Mato Grosso (BR)</td>
+                    <td className="px-4 py-3 font-bold text-soil-900">Coimbatore (TN)</td>
                     <td className="px-4 py-3 text-center text-red-700 font-bold">32/100</td>
                     <td className="px-4 py-3 text-center"><span className="bg-red-100 text-red-800 px-2 py-1 rounded-md text-[10px] font-extrabold tracking-wider">CRITICAL</span></td>
                   </tr>
                   <tr className="bg-orange-500/5 hover:bg-orange-500/10 transition">
-                    <td className="px-4 py-3 font-bold text-soil-900">Bhopal (IN)</td>
+                    <td className="px-4 py-3 font-bold text-soil-900">Bhopal (MP)</td>
                     <td className="px-4 py-3 text-center text-orange-700 font-bold">45/100</td>
                     <td className="px-4 py-3 text-center"><span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-md text-[10px] font-extrabold tracking-wider">HIGH</span></td>
                   </tr>
                   <tr className="bg-leaf-500/5 hover:bg-leaf-500/10 transition">
-                    <td className="px-4 py-3 font-bold text-soil-900">Free State (ZA)</td>
+                    <td className="px-4 py-3 font-bold text-soil-900">Ludhiana (PB)</td>
                     <td className="px-4 py-3 text-center text-leaf-700 font-bold">78/100</td>
                     <td className="px-4 py-3 text-center"><span className="bg-wheat-100 text-[#7c4a12] px-2 py-1 rounded-md text-[10px] font-extrabold tracking-wider border border-wheat-400/50">ELEVATED</span></td>
                   </tr>
@@ -183,9 +183,9 @@ const PolicymakerDashboard = () => {
             </div>
 
             <div className="bg-sky-100 border border-leaf-500/20 p-4 rounded-2xl text-[13px] text-leaf-800 shadow-sm flex items-start gap-3">
-              <span className="text-leaf-600 font-extrabold mt-0.5">ℹ</span>
+              <span className="text-leaf-600 font-extrabold mt-0.5">ℹ️</span>
               <p>
-                <strong>BRICS Alignment:</strong> This dashboard directly feeds into the BRICS Network on Digital Agriculture data layer (Indore Declaration '26).
+                <strong>National Alignment:</strong> This dashboard directly feeds into the National Network on Digital Agriculture data layer.
               </p>
             </div>
           </div>
