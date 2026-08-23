@@ -137,10 +137,11 @@ const PestDiagnosis = () => {
             className="flex-1 bg-transparent outline-none text-sm px-2"
           />
           <button 
-            onClick={handleSend}
-            className={`p-2 rounded-full transition ${input.trim() ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-400'}`}
+            onClick={() => handleSend(false)}
+            disabled={!input.trim()}
+            className="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Send className="w-5 h-5 ml-1" />
+            <Send className="w-5 h-5" />
           </button>
         </div>
       </div>

@@ -7,6 +7,13 @@ const Certificate = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
+  const verification = JSON.parse(localStorage.getItem('bhoomi_last_verification')) || {
+    practice_type: 'no-till',
+    plot_details: { id: 'P101', name: 'Wheat Field (2 Acres)' },
+    confidence_score: 87
+  };
+  
+  const displayPractice = verification.practice_type === 'cover-crop' ? 'Cover Cropping' : verification.practice_type === 'mulch' ? 'Residue Mulching' : 'No-Till Farming';
 
   return (
     <div className="min-h-screen bg-gray-100 pb-20 font-sans">
@@ -16,7 +23,7 @@ const Certificate = () => {
           <h1 className="text-lg font-bold text-gray-900">Regen Passport</h1>
         </div>
         <div className="flex gap-4">
-          <button onClick={() => alert("Link copied to clipboard!")} className="text-gray-600"><Share2 className="w-5 h-5" /></button>
+          <button onClick={() => { navigator.clipboard.writeText(window.location.href); alert("Link copied to clipboard!"); }} className="text-gray-600"><Share2 className="w-5 h-5" /></button>
           <button onClick={() => window.print()} className="text-gray-600"><Download className="w-5 h-5" /></button>
         </div>
       </header>
@@ -47,11 +54,11 @@ const Certificate = () => {
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Practice</p>
-                <p className="font-bold text-green-700">No-Till Farming</p>
+                <p className="font-bold text-green-700">{displayPractice}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Plot ID</p>
-                <p className="font-bold text-gray-900">P101 (2 Acres)</p>
+                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Plot</p>
+                <p className="font-bold text-gray-900">{verification.plot_details?.name || 'P101 (2 Acres)'}</p>
               </div>
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Verification</p>
@@ -59,7 +66,7 @@ const Certificate = () => {
               </div>
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Confidence</p>
-                <p className="font-bold text-green-600">87%</p>
+                <p className="font-bold text-green-600">{verification.confidence_score}%</p>
               </div>
             </div>
 

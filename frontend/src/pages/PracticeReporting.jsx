@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CheckCircle2, Loader2, MapPin, AlertCircle, ArrowLeft } from 'lucide-react';
@@ -19,13 +19,32 @@ const PracticeReporting = () => {
   const [step, setStep] = useState(1);
   const [isVerifying, setIsVerifying] = useState(false);
   const [result, setResult] = useState(null);
-
-  const [selectedPlot, setSelectedPlot] = useState('P101');
+  const [mockPlots, setMockPlots] = useState([]);
+  const [selectedPlot, setSelectedPlot] = useState('');
   const [practiceType, setPracticeType] = useState('no-till');
 
-  const mockPlots = [
-    { id: 'P101', name: 'Wheat Field (2 Acres)', location: 'Bhopal Dist.' }
-  ];
+  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { id: 'F001' };
+
+  useEffect(() => {
+    const fetchPlots = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const res = await fetch(`${apiUrl}/api/plots?farmer_id=${farmer.id || 'F001'}`);
+        if (res.ok) {
+          const data = await res.json();
+          setMockPlots(data);
+          if (data.length > 0) setSelectedPlot(data[0].id);
+        }
+      } catch (e) {
+        console.error("Failed to fetch plots:", e);
+        // Fallback
+        const fb = [{ id: 'P101', name: 'Wheat Field (2 Acres)', location: 'Bhopal Dist.' }];
+        setMockPlots(fb);
+        setSelectedPlot(fb[0].id);
+      }
+    };
+    fetchPlots();
+  }, [farmer.id]);
 
   const handleVerify = async () => {
     setIsVerifying(true);
@@ -38,22 +57,25 @@ const PracticeReporting = () => {
       });
       const data = await res.json();
       setResult(data);
+      localStorage.setItem('bhoomi_last_verification', JSON.stringify(data));
       setStep(2);
     } catch (e) {
       console.error(e);
-      setTimeout(() => {
-        setResult({
-          status: 'Verified',
-          confidence_score: 87,
-          ndti_series: [
-            { date: 'Jun 1', value: 0.1 },
-            { date: 'Jun 15', value: 0.15 },
-            { date: 'Jul 1', value: 0.25 },
-            { date: 'Jul 15', value: 0.28 },
-          ]
-        });
-        setStep(2);
-      }, 2000);
+      const fallbackResult = {
+        status: 'Verified',
+        confidence_score: 87,
+        practice_type: practiceType,
+        plot_details: mockPlots.find(p => p.id === selectedPlot) || mockPlots[0],
+        ndti_series: [
+          { date: 'Jun 1', value: 0.1 },
+          { date: 'Jun 15', value: 0.15 },
+          { date: 'Jul 1', value: 0.25 },
+          { date: 'Jul 15', value: 0.28 },
+        ]
+      };
+      setResult(fallbackResult);
+      localStorage.setItem('bhoomi_last_verification', JSON.stringify(fallbackResult));
+      setStep(2);
     }
     setIsVerifying(false);
   };
