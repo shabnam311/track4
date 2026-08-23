@@ -21,7 +21,7 @@ const AboutPage = () => {
           </div>
           <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">National Alignment</h2>
           <p className="text-soil-700 dark:text-wheat-400 leading-relaxed mb-4">
-            Bhoomi Setu is designed to act as a shared digital public good for the <strong>National Network on Digital Agriculture</strong> and the <strong>AgriN</strong> initiative (Indore Declaration, June 2026).
+            TerraSync is designed to act as a shared digital public good for the <strong>National Network on Digital Agriculture</strong> and the <strong>TerraSync</strong> initiative (Indore Declaration, June 2026).
           </p>
           <ul className="space-y-3 text-sm text-soil-700 dark:text-wheat-400">
             <li className="flex gap-2">
@@ -41,7 +41,7 @@ const AboutPage = () => {
           </div>
           <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">Data Sovereignty First</h2>
           <p className="text-soil-700 dark:text-wheat-400 leading-relaxed">
-            Unlike centralized agricultural platforms, Bhoomi Setu uses <strong>Federated Learning</strong>. When a farmer reports a crop disease, the raw photo <em>never leaves their device</em>. Only statistical model updates (parameter gradients) cross district/state borders to update the shared threat radar.
+            Unlike centralized agricultural platforms, TerraSync uses <strong>Federated Learning</strong>. When a farmer reports a crop disease, the raw photo <em>never leaves their device</em>. Only statistical model updates (parameter gradients) cross district/state borders to update the shared threat radar.
           </p>
         </section>
 
@@ -51,7 +51,7 @@ const AboutPage = () => {
           </div>
           <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">Bankable Proof</h2>
           <p className="text-soil-700 dark:text-wheat-400 leading-relaxed">
-            Advising farmers on regenerative practices isn't enough. Bhoomi Setu uses <strong>Sentinel-1/2 satellite data</strong> to generate portable, hash-anchored verification certificates. This lowers the cost of verification for smallholders, allowing them to finally access green subsidies and carbon markets.
+            Advising farmers on regenerative practices isn't enough. TerraSync uses <strong>Sentinel-1/2 satellite data</strong> to generate portable, hash-anchored verification certificates. This lowers the cost of verification for smallholders, allowing them to finally access green subsidies and carbon markets.
           </p>
         </section>
         

@@ -130,14 +130,14 @@ const PolicymakerDashboard = () => {
       <header className="bg-soil-900 p-4 shadow-sm flex items-center justify-between text-wheat-100 relative z-10 border-b border-transparent dark:border-white/10">
         <div className="flex items-center gap-3">
           <button aria-label="Go Back" onClick={() => navigate('/')} className="text-wheat-400 hover:text-white transition"><ArrowLeft /></button>
-          <h1 className="text-lg font-bold font-serif uppercase tracking-wider hidden sm:block">{t('national_dashboard') || 'AgriN National Dashboard'}</h1>
-          <h1 className="text-lg font-bold font-serif uppercase tracking-wider sm:hidden">AgriN Dash</h1>
+          <h1 className="text-lg font-bold font-serif uppercase tracking-wider hidden sm:block">{t('national_dashboard') || 'TerraSync National Dashboard'}</h1>
+          <h1 className="text-lg font-bold font-serif uppercase tracking-wider sm:hidden">TerraSync Dash</h1>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-leaf-500 rounded-full animate-pulse"></span>
           <span className="text-xs font-bold tracking-widest uppercase text-leaf-500 hidden sm:inline">Live Network</span>
         </div>
-        <button aria-label="Export Brief" onClick={() => exportBriefToCSV(compoundRiskDistricts, `bhoomi-setu-compound-risk-brief-${new Date().toISOString().split('T')[0]}.csv`)} className="flex items-center gap-2 bg-soil-800 border border-soil-700 px-3 py-1.5 rounded-xl text-sm font-bold hover:bg-soil-700 transition">
+        <button aria-label="Export Brief" onClick={() => exportBriefToCSV(compoundRiskDistricts, `terrasync-compound-risk-brief-${new Date().toISOString().split('T')[0]}.csv`)} className="flex items-center gap-2 bg-soil-800 border border-soil-700 px-3 py-1.5 rounded-xl text-sm font-bold hover:bg-soil-700 transition">
           <Download className="w-4 h-4" /> <span className="hidden sm:inline">{t('export_brief') || 'Export Brief'}</span>
         </button>
       </header>

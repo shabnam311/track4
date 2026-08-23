@@ -32,7 +32,7 @@ const PracticeReporting = () => {
     return () => observer.disconnect();
   }, []);
 
-  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { id: 'F001' };
+  const farmer = JSON.parse(localStorage.getItem('terrasync_farmer')) || { id: 'F001' };
 
   useEffect(() => {
     const fetchPlots = async () => {
@@ -65,7 +65,7 @@ const PracticeReporting = () => {
       });
       const data = await res.json();
       setResult(data);
-      localStorage.setItem('bhoomi_last_verification', JSON.stringify(data));
+      localStorage.setItem('terrasync_last_verification', JSON.stringify(data));
       setStep(2);
     } catch (e) {
       console.error(e);
@@ -86,7 +86,7 @@ const PracticeReporting = () => {
         ndti_series: series
       };
       setResult(fallbackResult);
-      localStorage.setItem('bhoomi_last_verification', JSON.stringify(fallbackResult));
+      localStorage.setItem('terrasync_last_verification', JSON.stringify(fallbackResult));
       setStep(2);
     }
     setIsVerifying(false);

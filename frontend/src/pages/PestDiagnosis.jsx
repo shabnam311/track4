@@ -6,7 +6,7 @@ import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck, Loader2
 const PestDiagnosis = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali' };
+  const farmer = JSON.parse(localStorage.getItem('terrasync_farmer')) || { name: 'Anjali' };
   const [messages, setMessages] = useState([
     { sender: 'bot', type: 'text', text: `${t('hello')} ${farmer.name}! Take a photo of the crop problem, or type a description.` }
   ]);
@@ -62,7 +62,7 @@ const PestDiagnosis = () => {
         <div className="flex items-center gap-3">
           <button aria-label="Go Back" onClick={() => navigate('/farmer')} className="text-soil-700 dark:text-wheat-400 hover:text-soil-900 dark:hover:text-white transition"><ArrowLeft /></button>
           <div>
-            <h1 className="text-lg font-bold font-serif text-soil-900 dark:text-white">AgriN Expert</h1>
+            <h1 className="text-lg font-bold font-serif text-soil-900 dark:text-white">TerraSync Expert</h1>
             <p className="text-xs text-leaf-600 dark:text-leaf-400 font-bold flex items-center gap-1">
               <span className="w-2 h-2 bg-leaf-500 rounded-full animate-pulse"></span> Online
             </p>
@@ -125,7 +125,7 @@ const PestDiagnosis = () => {
         {isTyping && (
           <div className="flex justify-start animate-in fade-in zoom-in duration-300">
             <div className="bg-white dark:bg-soil-800 p-3 rounded-2xl rounded-tl-none shadow-sm border border-black/10 dark:border-white/10 flex items-center gap-2 text-xs font-bold text-soil-700 dark:text-wheat-400">
-              <Loader2 className="w-4 h-4 animate-spin text-leaf-500" /> AgriN Expert is analyzing...
+              <Loader2 className="w-4 h-4 animate-spin text-leaf-500" /> TerraSync Expert is analyzing...
             </div>
           </div>
         )}

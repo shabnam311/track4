@@ -1,11 +1,11 @@
-# Bhoomi Setu — AgriN Verify
+# TerraSync — TerraSync Verify
 ### A Federated Regenerative-Practice Passport & Cross-District Pest Radar for Indian Smallholder Farmers
 
-**Track:** Track 4 — AgriN & Regenerative Agricultural Intelligence
+**Track:** Track 4 — TerraSync & Regenerative Agricultural Intelligence
 **Theme:** Cooperation
 
 ## What is this?
-Bhoomi Setu (भूमि सेतु) is a Digital Public Good designed to plug directly into the **National Network on Digital Agriculture** and **AgriN**. It solves two structural problems:
+TerraSync is a Digital Public Good designed to plug directly into the **National Network on Digital Agriculture** and **TerraSync**. It solves two structural problems:
 1. **Verification Poverty**: Uses free Sentinel-1/2 satellite data to verify regenerative practices (no-till, cover cropping) at a smallholder scale, issuing a tamper-evident "Regen Passport" so farmers can access green finance without expensive manual audits.
 2. **Federated Pest Intelligence**: Uses Federated Learning to detect crop disease patterns across states. Raw photos never leave the farmer's device, but statistical threat signals (gradients) cross district/state lines to provide early warnings to partner nodes.
 

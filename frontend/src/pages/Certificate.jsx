@@ -7,8 +7,8 @@ import { QRCodeSVG } from 'qrcode.react';
 const Certificate = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
-  const verification = JSON.parse(localStorage.getItem('bhoomi_last_verification')) || {
+  const farmer = JSON.parse(localStorage.getItem('terrasync_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
+  const verification = JSON.parse(localStorage.getItem('terrasync_last_verification')) || {
     practice_type: 'no-till',
     plot_details: { id: 'P101', name: 'Wheat Field (2 Acres)' },
     confidence_score: 87
@@ -43,7 +43,7 @@ const Certificate = () => {
             <div className="relative z-10">
               <ShieldCheck className="w-12 h-12 mx-auto mb-2 text-wheat-400" />
               <h2 className="text-xl font-bold font-serif uppercase tracking-wider mb-1 text-white">Regenerative Practice Certificate</h2>
-              <p className="text-white/80 text-sm">Issued by Bhoomi Setu Network</p>
+              <p className="text-white/80 text-sm">Issued by TerraSync Network</p>
             </div>
           </div>
 

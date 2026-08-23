@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      bhoomi_setu: 'Bhoomi Setu',
+      terrasync: 'TerraSync',
       farmer_anjali: 'Farmer: Anjali (MP)',
       farmer_karthik: 'Karthik (TN)',
       policymaker: 'Continue as Policymaker',
@@ -13,17 +13,17 @@ const resources = {
       diagnose_crop: 'Diagnose Crop',
       my_passport: 'My Passport',
       certificate: 'View Certificates',
-      about_page: 'About Bhoomi Setu',
+      about_page: 'About TerraSync',
       early_warning: 'Network signal: possible Spodoptera mutation nearby',
       hello: 'Hello',
       reset_demo: 'Reset Demo Data',
       export_brief: 'Export Brief',
-      national_dashboard: 'AgriN National Dashboard'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   hi: {
     translation: {
-      bhoomi_setu: 'भूमि सेतु',
+      terrasync: 'TerraSync',
       farmer_anjali: 'किसान: अंजलि (MP)',
       farmer_karthik: 'कार्तिक (TN)',
       policymaker: 'नीति निर्माता के रूप में जारी रखें',
@@ -37,12 +37,12 @@ const resources = {
       hello: 'नमस्ते',
       reset_demo: 'डेटा रीसेट करें',
       export_brief: 'रिपोर्ट निर्यात करें',
-      national_dashboard: 'AgriN राष्ट्रीय डैशबोर्ड'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   ta: {
     translation: {
-      bhoomi_setu: 'பூமி சேது',
+      terrasync: 'TerraSync',
       farmer_anjali: 'விவசாயி: அஞ்சலி (MP)',
       farmer_karthik: 'கார்த்திக் (TN)',
       policymaker: 'கொள்கை வகுப்பாளராக தொடரவும்',
@@ -56,12 +56,12 @@ const resources = {
       hello: 'வணக்கம்',
       reset_demo: 'தரவை மீட்டமை',
       export_brief: 'அறிக்கை ஏற்றுமதி',
-      national_dashboard: 'AgriN தேசிய டாஷ்போர்டு'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   mr: {
     translation: {
-      bhoomi_setu: 'भूमी सेतू',
+      terrasync: 'TerraSync',
       farmer_anjali: 'शेतकरी: अंजली (MP)',
       farmer_karthik: 'कार्तिक (TN)',
       policymaker: 'धोरणकर्ता म्हणून पुढे जा',
@@ -75,12 +75,12 @@ const resources = {
       hello: 'नमस्कार',
       reset_demo: 'डेटा रीसेट करा',
       export_brief: 'अहवाल निर्यात करा',
-      national_dashboard: 'AgriN राष्ट्रीय डॅशबोर्ड'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   pa: {
     translation: {
-      bhoomi_setu: 'ਭੂਮੀ ਸੇਤੂ',
+      terrasync: 'TerraSync',
       farmer_anjali: 'ਕਿਸਾਨ: ਅੰਜਲੀ (MP)',
       farmer_karthik: 'ਕਾਰਤਿਕ (TN)',
       policymaker: 'ਪਾਲਿਸੀਮੇਕਰ ਵਜੋਂ ਜਾਰੀ ਰੱਖੋ',
@@ -94,12 +94,12 @@ const resources = {
       hello: 'ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ',
       reset_demo: 'ਡਾਟਾ ਰੀਸੈਟ ਕਰੋ',
       export_brief: 'ਰਿਪੋਰਟ ਡਾਊਨਲੋਡ ਕਰੋ',
-      national_dashboard: 'AgriN ਰਾਸ਼ਟਰੀ ਡੈਸ਼ਬੋਰਡ'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   gu: {
     translation: {
-      bhoomi_setu: 'ભૂમિ સેતુ',
+      terrasync: 'TerraSync',
       farmer_anjali: 'ખેડૂત: અંજલિ (MP)',
       farmer_karthik: 'કાર્તિક (TN)',
       policymaker: 'નીતિ નિર્માતા તરીકે ચાલુ રાખો',
@@ -113,12 +113,12 @@ const resources = {
       hello: 'નમસ્તે',
       reset_demo: 'ડેટા રીસેટ કરો',
       export_brief: 'રિપોર્ટ નિકાસ કરો',
-      national_dashboard: 'AgriN રાષ્ટ્રીય ડેશબોર્ડ'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   bn: {
     translation: {
-      bhoomi_setu: 'ভূমি সেতু',
+      terrasync: 'TerraSync',
       farmer_anjali: 'কৃষক: অঞ্জলি (MP)',
       farmer_karthik: 'কার্তিক (TN)',
       policymaker: 'পলিসি মেকার হিসাবে চালিয়ে যান',
@@ -132,12 +132,12 @@ const resources = {
       hello: 'নমস্কার',
       reset_demo: 'ডেটা রিসেট করুন',
       export_brief: 'রিপোর্ট এক্সপোর্ট করুন',
-      national_dashboard: 'AgriN জাতীয় ড্যাশবোর্ড'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   },
   te: {
     translation: {
-      bhoomi_setu: 'భూమి సేతు',
+      terrasync: 'TerraSync',
       farmer_anjali: 'రైతు: అంజలి (MP)',
       farmer_karthik: 'కార్తీక్ (TN)',
       policymaker: 'విధానకర్తగా కొనసాగండి',
@@ -151,7 +151,7 @@ const resources = {
       hello: 'నమస్కారం',
       reset_demo: 'డేటాను రీసెట్ చేయండి',
       export_brief: 'నివేదికను ఎగుమతి చేయండి',
-      national_dashboard: 'AgriN జాతీయ డాష్‌బోర్డ్'
+      national_dashboard: 'National TerraSync Dashboard'
     }
   }
 };

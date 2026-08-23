@@ -16,8 +16,8 @@ const FarmerHome = () => {
     }
   };
 
-  const farmer = parseSafe('bhoomi_farmer', { id: 'F001', name: 'Anjali', location: 'Madhya Pradesh', country: 'India' });
-  const verification = parseSafe('bhoomi_last_verification', null);
+  const farmer = parseSafe('terrasync_farmer', { id: 'F001', name: 'Anjali', location: 'Madhya Pradesh', country: 'India' });
+  const verification = parseSafe('terrasync_last_verification', null);
   const activeCertCount = verification ? 1 : 0;
   const regenScore = activeCertCount > 0 ? verification.confidence_score : null;
   const activePlot = activeCertCount > 0 ? (verification?.plot_details?.name || 'Wheat Field (2 Acres)') : null;
@@ -27,7 +27,7 @@ const FarmerHome = () => {
     <div className="min-h-screen bg-sky-100 dark:bg-soil-900 p-4 md:p-8 pb-20 font-sans text-soil-900 dark:text-wheat-100 max-w-md mx-auto relative shadow-sm border-x border-black/5 dark:border-white/10 transition-colors duration-200">
       <header className="flex justify-between items-start mb-8">
         <div className="flex-1">
-          <h1 className="text-2xl font-serif font-bold text-soil-900 dark:text-white m-0">{t('bhoomi_setu')}</h1>
+          <h1 className="text-2xl font-serif font-bold text-soil-900 dark:text-white m-0">{t('terrasync')}</h1>
           <p className="text-sm text-leaf-600 dark:text-leaf-400 font-bold m-0 mt-0.5">{t('hello')}, {farmer?.name || 'Anjali'} ({farmer?.location || 'India'})</p>
         </div>
         <div className="flex items-center gap-2">

@@ -44,7 +44,7 @@ const LandingPage = () => {
   };
 
   const setPersona = (farmerData) => {
-    localStorage.setItem('bhoomi_farmer', JSON.stringify(farmerData));
+    localStorage.setItem('terrasync_farmer', JSON.stringify(farmerData));
     navigate('/farmer');
   };
 
@@ -52,8 +52,8 @@ const LandingPage = () => {
     <div className="min-h-screen bg-paper dark:bg-soil-900 text-soil-900 dark:text-wheat-100 bg-radial-pattern font-sans flex flex-col">
       <header className="flex flex-col md:flex-row justify-between items-center px-6 py-5 md:px-12 md:py-6 gap-4">
         <div className="flex items-center gap-2 font-extrabold text-lg">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">BS</span> 
-          Bhoomi Setu
+          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">TS</span> 
+          TerraSync
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
           <LangBtn code="en" label="EN" currentLang={i18n.language} changeLanguage={changeLanguage} />
@@ -77,7 +77,7 @@ const LandingPage = () => {
       <main className="flex-1 max-w-6xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center gap-10">
         <div className="flex-1">
           <span className="inline-flex items-center gap-2 bg-sky-100 dark:bg-sky-900/30 text-leaf-600 dark:text-leaf-400 px-4 py-1.5 rounded-full text-xs font-extrabold tracking-wide mb-6">
-            AgriN Verify - Built for India
+            TerraSync Verify - Built for India
           </span>
           <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-soil-900 dark:text-white leading-tight mb-5">
             Proof your fields <span className="font-sans text-leaf-600 dark:text-leaf-500">for a future</span><br/>the climate can bank on.
@@ -111,7 +111,7 @@ const LandingPage = () => {
               onClick={() => navigate('/about')}
               className="bg-transparent text-leaf-600 dark:text-leaf-400 font-bold py-2 px-1 mt-2 text-left hover:underline flex justify-between items-center"
             >
-              About Bhoomi Setu <span><ArrowRight className="w-4 h-4 inline" /></span>
+              About TerraSync <span><ArrowRight className="w-4 h-4 inline" /></span>
             </button>
           </div>
         </div>
