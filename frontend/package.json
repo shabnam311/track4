@@ -9,14 +9,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint",
+    "lint": "oxlint src",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "smoke-test": "node testRender.jsx"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
     "i18next": "^26.4.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.33.0",
@@ -26,8 +24,7 @@
     "react-i18next": "^17.0.12",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.18.2",
-    "recharts": "^3.10.1",
-    "tailwind-merge": "^3.6.0"
+    "recharts": "^3.10.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",

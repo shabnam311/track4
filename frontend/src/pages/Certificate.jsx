@@ -82,7 +82,7 @@ const Certificate = () => {
                 <p className="text-[10px] text-leaf-600 dark:text-leaf-400 font-extrabold mt-1"> Verified on immutable ledger</p>
               </div>
               <div className="w-16 h-16 bg-white dark:bg-soil-800 p-1 rounded-xl shadow-sm border border-black/5 dark:border-white/10 flex-shrink-0">
-                <QRCodeSVG value={payload} size={54} fgColor="#22281c" title="Certificate QR Code" />
+                <QRCodeSVG value={payload} size={54} level="M" fgColor="#22281c" title="Certificate QR Code" />
               </div>
             </div>
           </div>

@@ -34,8 +34,8 @@ const FarmerHome = () => {
           <button 
             onClick={() => navigate('/')} 
             className="w-10 h-10 rounded-full bg-white dark:bg-soil-800 border border-black/10 dark:border-white/10 flex items-center justify-center text-soil-700 dark:text-wheat-400 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400 transition shadow-sm"
-            aria-label="Log Out"
-            title="Log Out"
+            aria-label="Switch Farmer"
+            title="Switch Farmer"
           >
             <LogOut className="w-4 h-4" />
           </button>
@@ -48,7 +48,7 @@ const FarmerHome = () => {
       {farmer.id === 'F002' && (
         <div className="bg-[#fdf0e2] dark:bg-yellow-900/20 border-l-4 border-wheat-400 dark:border-yellow-600 p-3.5 rounded-2xl shadow-sm mb-6 flex items-start gap-3">
           <p className="text-[13px] text-[#7c4a12] dark:text-yellow-400 font-semibold leading-snug m-0 flex gap-2">
-            <span>️</span> {t('early_warning')}
+            <span>{t('early_warning')}</span>
           </p>
         </div>
       )}
@@ -65,8 +65,8 @@ const FarmerHome = () => {
         <div className="bg-white dark:bg-soil-800 rounded-2xl p-4 shadow-sm border border-black/5 dark:border-white/10 flex items-center gap-3">
           <IndianRupee className="w-6 h-6 text-green-600 dark:text-green-500" />
           <div>
-            <p className="text-xs text-soil-700 dark:text-wheat-400 font-bold uppercase tracking-wide">Mandi (Soy)</p>
-            <p className="text-sm font-bold text-soil-900 dark:text-white">₹4,200/q</p>
+            <p className="text-xs text-soil-700 dark:text-wheat-400 font-bold uppercase tracking-wide">Mandi ({activePlot?.split(' ')[0] || (farmer.id === 'F002' ? 'Rice' : 'Wheat')})</p>
+            <p className="text-sm font-bold text-soil-900 dark:text-white">₹2,200/q</p>
           </div>
         </div>
       </div>
