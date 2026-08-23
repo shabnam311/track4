@@ -94,4 +94,4 @@ const Certificate = () => {
   );
 };
 
-export default Certificate;ate;
+export default Certificate;

@@ -195,4 +195,4 @@ const PracticeReporting = () => {
   );
 };
 
-export default PracticeReporting;g;
+export default PracticeReporting;
