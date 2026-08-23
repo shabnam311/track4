@@ -7,9 +7,17 @@ const FarmerHome = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { id: 'F001', name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
+  const parseSafe = (key, fallback) => {
+    try {
+      const val = localStorage.getItem(key);
+      return val && val !== 'undefined' ? JSON.parse(val) : fallback;
+    } catch {
+      return fallback;
+    }
+  };
 
-  const verification = JSON.parse(localStorage.getItem('bhoomi_last_verification')) || null;
+  const farmer = parseSafe('bhoomi_farmer', { id: 'F001', name: 'Anjali', location: 'Madhya Pradesh', country: 'India' });
+  const verification = parseSafe('bhoomi_last_verification', null);
   const regenScore = verification?.confidence_score || 87;
   const activePlot = verification?.plot_details?.name || 'Wheat Field (2 Acres)';
   const activeCertCount = verification ? 1 : 0;
@@ -19,10 +27,10 @@ const FarmerHome = () => {
       <header className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-serif font-bold text-soil-900 m-0">{t('bhoomi_setu')}</h1>
-          <p className="text-sm text-leaf-600 font-bold m-0 mt-0.5">{t('hello')}, {farmer.name} ({farmer.location})</p>
+          <p className="text-sm text-leaf-600 font-bold m-0 mt-0.5">{t('hello')}, {farmer?.name || 'Anjali'} ({farmer?.location || 'India'})</p>
         </div>
         <div className="w-11 h-11 bg-leaf-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm">
-          {farmer.name.substring(0, 2).toUpperCase()}
+          {(farmer?.name || 'AN').substring(0, 2).toUpperCase()}
         </div>
       </header>
 

@@ -17,7 +17,6 @@ const LandingPage = () => {
   };
 
   const setPersona = (farmerData) => {
-    // In a real app, we'd use Context/Zustand. For prototype, use localStorage.
     localStorage.setItem('bhoomi_farmer', JSON.stringify(farmerData));
     navigate('/farmer');
   };
@@ -26,7 +25,7 @@ const LandingPage = () => {
     <div className="min-h-screen bg-paper text-soil-900 bg-radial-pattern font-sans flex flex-col">
       <header className="flex justify-between items-center px-6 py-5 md:px-12 md:py-6">
         <div className="flex items-center gap-2 font-extrabold text-lg">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">भू</span> 
+          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">🌱</span> 
           Bhoomi Setu
         </div>
         <div className="flex gap-2">
@@ -83,7 +82,7 @@ const LandingPage = () => {
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(115deg, rgba(255,255,255,0.8) 0 2px, transparent 2px 26px)' }}></div>
           <div className="absolute bottom-6 left-6 right-6 bg-paper/95 backdrop-blur-md rounded-2xl p-5 shadow-lg border border-white/20">
             <div className="font-serif font-bold text-4xl text-soil-900">87<span className="text-xl text-soil-700 font-sans font-normal">/100</span></div>
-            <div className="text-xs uppercase tracking-widest text-soil-700 font-bold mt-1">Regen Score · Verified via S-1/2</div>
+            <div className="text-xs uppercase tracking-widest text-soil-700 font-bold mt-1">Regen Score • Verified via S-1/2</div>
           </div>
         </div>
       </main>
