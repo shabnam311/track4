@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Leaf, ShieldCheck, Activity, AlertCircle, Sprout } from 'lucide-react';
+import { Leaf, ShieldCheck, Activity, AlertCircle, Sprout, LogOut } from 'lucide-react';
 
 const FarmerHome = () => {
   const { t } = useTranslation();
@@ -24,13 +24,22 @@ const FarmerHome = () => {
 
   return (
     <div className="min-h-screen bg-sky-100 p-4 md:p-8 pb-20 font-sans text-soil-900 max-w-md mx-auto relative shadow-sm border-x border-black/5">
-      <header className="flex justify-between items-center mb-8">
-        <div>
+      <header className="flex justify-between items-start mb-8">
+        <div className="flex-1">
           <h1 className="text-2xl font-serif font-bold text-soil-900 m-0">{t('bhoomi_setu')}</h1>
           <p className="text-sm text-leaf-600 font-bold m-0 mt-0.5">{t('hello')}, {farmer?.name || 'Anjali'} ({farmer?.location || 'India'})</p>
         </div>
-        <div className="w-11 h-11 bg-leaf-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm">
-          {(farmer?.name || 'AN').substring(0, 2).toUpperCase()}
+        <div className="flex items-center gap-2">
+          <button 
+            onClick={() => navigate('/')} 
+            className="w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center text-soil-700 hover:bg-red-50 hover:text-red-600 transition shadow-sm"
+            title="Log Out"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
+          <div className="w-11 h-11 bg-leaf-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
+            {(farmer?.name || 'AN').substring(0, 2).toUpperCase()}
+          </div>
         </div>
       </header>
 
