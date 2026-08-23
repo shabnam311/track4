@@ -48,7 +48,7 @@ const FarmerHome = () => {
       {farmer.id === 'F002' && (
         <div className="bg-[#fdf0e2] dark:bg-yellow-900/20 border-l-4 border-wheat-400 dark:border-yellow-600 p-3.5 rounded-2xl shadow-sm mb-6 flex items-start gap-3">
           <p className="text-[13px] text-[#7c4a12] dark:text-yellow-400 font-semibold leading-snug m-0 flex gap-2">
-            <span>⚠️</span> {t('early_warning')}
+            <span>️</span> {t('early_warning')}
           </p>
         </div>
       )}
@@ -109,7 +109,7 @@ const FarmerHome = () => {
             <>
               <p className="text-4xl font-serif font-bold mb-3">{regenScore}<span className="text-base font-sans font-normal opacity-80">/100</span></p>
               {isTopPercentile && (
-                <p className="text-xs font-bold bg-white/20 inline-block px-2 py-1 rounded-md mb-2 text-white">⭐ Top 20% in your district</p>
+                <p className="text-xs font-bold bg-white/20 inline-block px-2 py-1 rounded-md mb-2 text-white"> Top 20% in your district</p>
               )}
               <p className="text-[13.5px] opacity-90 mb-4 font-medium">Active Certificates: {activeCertCount} ({activePlot})</p>
               <button aria-label="View Certificate" onClick={() => navigate('/farmer/certificate')} className="px-4 py-2 bg-white text-leaf-600 rounded-xl text-sm font-extrabold shadow-sm hover:bg-paper transition">

@@ -103,7 +103,7 @@ const PestDiagnosis = () => {
                   <p className="text-xs text-soil-700 dark:text-wheat-400 leading-relaxed">Treatment: {m.data?.treatment}</p>
                   
                   <div className="bg-orange-50 dark:bg-orange-900/20 text-orange-800 dark:text-orange-300 text-xs font-bold p-2 rounded-lg my-2 border border-orange-200 dark:border-orange-900/50">
-                    🔔 3 other farmers in your district reported similar symptoms this week.
+                     3 other farmers in your district reported similar symptoms this week.
                   </div>
 
                   <button className="w-full flex justify-center items-center gap-2 bg-leaf-100 dark:bg-leaf-900/30 hover:bg-leaf-200 dark:hover:bg-leaf-900/50 text-leaf-700 dark:text-leaf-300 font-bold text-xs p-2 rounded-xl border border-leaf-200 dark:border-leaf-800 transition">

@@ -52,7 +52,7 @@ const LandingPage = () => {
     <div className="min-h-screen bg-paper dark:bg-soil-900 text-soil-900 dark:text-wheat-100 bg-radial-pattern font-sans flex flex-col">
       <header className="flex flex-col md:flex-row justify-between items-center px-6 py-5 md:px-12 md:py-6 gap-4">
         <div className="flex items-center gap-2 font-extrabold text-lg">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">🌱</span> 
+          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-leaf-500 to-leaf-600 flex items-center justify-center text-white text-sm font-sans">BS</span> 
           Bhoomi Setu
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">

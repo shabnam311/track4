@@ -177,7 +177,7 @@ const PolicymakerDashboard = () => {
             </div>
 
             <div className="bg-sky-100 dark:bg-sky-900/30 border border-leaf-500/20 dark:border-white/10 p-4 rounded-2xl text-[13px] text-leaf-800 dark:text-wheat-300 shadow-sm flex items-start gap-3">
-              <span className="text-leaf-600 dark:text-leaf-400 font-extrabold mt-0.5">💡</span>
+              <span className="text-leaf-600 dark:text-leaf-400 font-extrabold mt-0.5"></span>
               <p>
                 <strong>National Alignment:</strong> This dashboard directly feeds into the National Network on Digital Agriculture data layer.
               </p>

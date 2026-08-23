@@ -79,7 +79,7 @@ const Certificate = () => {
               <div className="overflow-hidden flex-1">
                 <p className="text-[10px] font-bold text-soil-700 dark:text-wheat-400 uppercase mb-1 tracking-wide">Blockchain Anchor Hash</p>
                 <p className="text-xs text-soil-900 dark:text-wheat-100 font-mono truncate">{hash}</p>
-                <p className="text-[10px] text-leaf-600 dark:text-leaf-400 font-extrabold mt-1">✓ Verified on immutable ledger</p>
+                <p className="text-[10px] text-leaf-600 dark:text-leaf-400 font-extrabold mt-1"> Verified on immutable ledger</p>
               </div>
               <div className="w-16 h-16 bg-white dark:bg-soil-800 p-1 rounded-xl shadow-sm border border-black/5 dark:border-white/10 flex-shrink-0">
                 <QRCodeSVG value={payload} size={54} fgColor="#22281c" title="Certificate QR Code" />
