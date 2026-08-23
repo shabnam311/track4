@@ -5,46 +5,49 @@ const resources = {
   en: {
     translation: {
       "bhoomi_setu": "Bhoomi Setu",
-      "subtitle": "AgriN Verify | A BRICS Digital Public Good",
-      "continue_farmer": "Continue as Farmer",
-      "continue_policymaker": "Continue as Policymaker",
-      "about_bhoomi_setu": "About Bhoomi Setu & BRICS Alignment",
+      "farmer_anjali": "Farmer: Anjali (IN)",
+      "farmer_carlos": "Carlos (BR)",
+      "policymaker": "Continue as Policymaker",
       "report_practice": "Report Regenerative Practice",
-      "diagnose_crop": "Diagnose Crop Problem",
-      "my_passport": "My Regen Passport",
-      "simulated_data_warning": "You are viewing simulated satellite/federated data for demo purposes",
-      "threat_radar": "Threat Radar",
-      "federated_network": "Federated Network"
+      "pest_diagnosis": "Pest & Disease Diagnosis",
+      "diagnose_crop": "Diagnose Crop",
+      "my_passport": "My Passport",
+      "certificate": "View Certificates",
+      "about_brics": "About Bhoomi Setu & BRICS",
+      "early_warning": "Partner network signal: possible Spodoptera mutation nearby",
+      "hello": "Hello"
     }
   },
   hi: {
     translation: {
       "bhoomi_setu": "भूमि सेतु",
-      "subtitle": "एग्री-एन वेरीफाई | ब्रिक्स डिजिटल पब्लिक गुड",
-      "continue_farmer": "किसान के रूप में जारी रखें",
-      "continue_policymaker": "नीति निर्माता के रूप में जारी रखें",
-      "about_bhoomi_setu": "भूमि सेतु और ब्रिक्स संरेखण के बारे में",
-      "report_practice": "पुनर्योजी कृषि की रिपोर्ट करें",
-      "diagnose_crop": "फसल रोग का निदान करें",
-      "my_passport": "मेरा रीजन पासपोर्ट",
-      "simulated_data_warning": "आप डेमो उद्देश्यों के लिए सिम्युलेटेड सैटेलाइट/फेडरेटेड डेटा देख रहे हैं",
-      "threat_radar": "खतरा रडार",
-      "federated_network": "फेडरेटेड नेटवर्क"
+      "farmer_anjali": "किसान: अंजलि (IN)",
+      "farmer_carlos": "कार्लोस (BR)",
+      "policymaker": "नीति निर्माता के रूप में जारी रखें",
+      "report_practice": "पुनर्योजी अभ्यास दर्ज करें",
+      "pest_diagnosis": "कीट और रोग निदान",
+      "diagnose_crop": "फसल का निदान करें",
+      "my_passport": "मेरा पासपोर्ट",
+      "certificate": "प्रमाण पत्र देखें",
+      "about_brics": "भूमि सेतु और ब्रिक्स के बारे में",
+      "early_warning": "चेतावनी: आस-पास स्पोडोप्टेरा उत्परिवर्तन का संकेत",
+      "hello": "नमस्ते"
     }
   },
-  pt: {
+  ta: {
     translation: {
-      "bhoomi_setu": "Ponte da Terra (Bhoomi Setu)",
-      "subtitle": "AgriN Verify | Um Bem Público Digital do BRICS",
-      "continue_farmer": "Continuar como Agricultor",
-      "continue_policymaker": "Continuar como Formulador de Políticas",
-      "about_bhoomi_setu": "Sobre Bhoomi Setu e Alinhamento do BRICS",
-      "report_practice": "Relatar Prática Regenerativa",
-      "diagnose_crop": "Diagnosticar Problema na Cultura",
-      "my_passport": "Meu Passaporte Regen",
-      "simulated_data_warning": "Você está visualizando dados de satélite/federados simulados para fins de demonstração",
-      "threat_radar": "Radar de Ameaças",
-      "federated_network": "Rede Federada"
+      "bhoomi_setu": "பூமி சேது",
+      "farmer_anjali": "விவசாயி: அஞ்சலி (IN)",
+      "farmer_carlos": "கார்லோஸ் (BR)",
+      "policymaker": "கொள்கை வகுப்பாளராக தொடரவும்",
+      "report_practice": "மறுபிறவி நடைமுறையைப் புகாரளிக்கவும்",
+      "pest_diagnosis": "பூச்சி மற்றும் நோய் கண்டறிதல்",
+      "diagnose_crop": "பயிர் கண்டறிதல்",
+      "my_passport": "என் பாஸ்போர்ட்",
+      "certificate": "சான்றிதழ்களைக் காண்க",
+      "about_brics": "பூமி சேது & பிரிக்ஸ் பற்றி",
+      "early_warning": "எச்சரிக்கை: அருகில் ஸ்போடோப்டெரா மாற்றம்",
+      "hello": "வணக்கம்"
     }
   }
 };
@@ -53,8 +56,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: "en",
+    fallbackLng: "en",
     interpolation: {
       escapeValue: false
     }

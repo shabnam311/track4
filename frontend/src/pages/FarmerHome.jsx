@@ -1,36 +1,47 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Leaf, ShieldCheck, Activity } from 'lucide-react';
+import { Leaf, ShieldCheck, Activity, AlertCircle, Sprout } from 'lucide-react';
 
 const FarmerHome = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
+  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { id: 'F001', name: 'Anjali', location: 'Madhya Pradesh', country: 'India' };
 
   return (
     <div className="min-h-screen bg-sky-100 p-4 pb-20 font-sans">
       <header className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-serif font-bold text-soil-900">{t('bhoomi_setu')}</h1>
-          <p className="text-sm text-leaf-600 font-medium">Hello, {farmer.name} ({farmer.location})</p>
+          <p className="text-sm text-leaf-600 font-medium">{t('hello')}, {farmer.name} ({farmer.location})</p>
         </div>
         <div className="w-10 h-10 bg-leaf-500 rounded-full flex items-center justify-center text-white font-bold">
           {farmer.name.substring(0, 2).toUpperCase()}
         </div>
       </header>
 
+      {farmer.id === 'F002' && (
+        <div className="bg-orange-100 border-l-4 border-orange-500 p-4 rounded-xl shadow-sm mb-6 flex items-start gap-3">
+          <AlertCircle className="w-6 h-6 text-orange-600 flex-shrink-0" />
+          <p className="text-sm text-orange-800 font-medium">
+            {t('early_warning')}
+          </p>
+        </div>
+      )}
+
       <div className="space-y-4">
         <button 
           onClick={() => navigate('/farmer/report-practice')}
-          className="w-full bg-white p-6 rounded-2xl shadow-sm border border-green-100 flex flex-col items-center text-center hover:bg-green-50 transition"
+          className="w-full bg-white p-6 rounded-2xl shadow-sm flex items-center gap-4 hover:shadow-md transition"
         >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-            <Leaf className="w-8 h-8 text-green-600" />
+          <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+            <Sprout className="w-6 h-6 text-green-600" />
           </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">{t('report_practice')}</h2>
-          <p className="text-sm text-gray-500">Log no-till, cover cropping, or agroforestry for satellite verification.</p>
+          <div className="text-left flex-1">
+            <h3 className="font-bold text-gray-900">{t('report_practice')}</h3>
+            <p className="text-sm text-gray-500">Log your field activities</p>
+          </div>
         </button>
 
         <button 
