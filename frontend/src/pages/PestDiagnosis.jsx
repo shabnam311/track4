@@ -6,8 +6,9 @@ import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck, Loader2
 const PestDiagnosis = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const farmer = JSON.parse(localStorage.getItem('bhoomi_farmer')) || { name: 'Anjali' };
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hello Anjali! Take a photo of the crop problem, or type a description.' }
+    { sender: 'bot', type: 'text', text: `${t('hello')} ${farmer.name}! Take a photo of the crop problem, or type a description.` }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);

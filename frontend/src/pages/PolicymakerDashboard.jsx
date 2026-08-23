@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Map as MapIcon, Network, ShieldAlert, Download } from 'lucide-react';
+import { ArrowLeft, Network, ShieldAlert, Download, Activity, ShieldCheck } from 'lucide-react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 
 const FederatedNetwork = () => {
@@ -139,10 +139,10 @@ const PolicymakerDashboard = () => {
             <Activity className="w-4 h-4" /> Global Pest Radar
           </button>
           <button 
-            onClick={() => setActiveTab('passport')}
-            className={`px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition flex items-center gap-2 shadow-sm ${activeTab === 'passport' ? 'bg-soil-900 text-wheat-100' : 'bg-white text-soil-700 hover:bg-black/5 border border-black/10'}`}
+            onClick={() => setActiveTab('network')}
+            className={`px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition flex items-center gap-2 shadow-sm ${activeTab === 'network' ? 'bg-soil-900 text-wheat-100' : 'bg-white text-soil-700 hover:bg-black/5 border border-black/10'}`}
           >
-            <ShieldCheck className="w-4 h-4" /> Regen Passports
+            <Network className="w-4 h-4" /> Federated Network Status
           </button>
         </div>
 

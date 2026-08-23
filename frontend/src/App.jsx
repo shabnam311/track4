@@ -33,6 +33,7 @@ const LandingPage = () => {
           <button onClick={() => changeLanguage('en')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'en' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>EN</button>
           <button onClick={() => changeLanguage('hi')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'hi' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>HI</button>
           <button onClick={() => changeLanguage('ta')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'ta' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>TA</button>
+          <button onClick={() => changeLanguage('pt')} className={`px-4 py-1.5 rounded-full text-sm font-bold border border-black/15 transition ${i18n.language === 'pt' ? 'bg-soil-900 text-wheat-100 border-soil-900' : 'bg-transparent text-soil-700 hover:bg-black/5'}`}>PT</button>
         </div>
       </header>
 
@@ -57,7 +58,7 @@ const LandingPage = () => {
                 Farmer: Anjali (IN) <span>→</span>
               </button>
               <button 
-                onClick={() => setPersona({ id: 'F002', name: 'Carlos', country: 'Brazil', location: 'Mato Grosso', lang: 'ta' })}
+                onClick={() => setPersona({ id: 'F002', name: 'Carlos', country: 'Brazil', location: 'Mato Grosso', lang: 'pt' })}
                 className="flex-1 bg-leaf-600 text-white py-4 px-5 rounded-2xl font-bold flex justify-between items-center hover:-translate-y-0.5 transition shadow-sm"
               >
                 Carlos (BR) <span>→</span>

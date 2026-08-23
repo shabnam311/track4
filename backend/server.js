@@ -14,7 +14,7 @@ const MODEL = "gemini-2.5-flash"; // Updated to current active model
 // Seed Data
 const farmers = [
   { id: 'F001', name: 'Anjali', phone: '+919876543210', country: 'India', preferred_language: 'hi' },
-  { id: 'F002', name: 'Carlos', phone: '+5511987654321', country: 'Brazil', preferred_language: 'ta' } // Swapped PT to Tamil (ta)
+  { id: 'F002', name: 'Carlos', phone: '+5511987654321', country: 'Brazil', preferred_language: 'pt' }
 ];
 
 const plots = [

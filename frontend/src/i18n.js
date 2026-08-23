@@ -49,6 +49,22 @@ const resources = {
       "early_warning": "எச்சரிக்கை: அருகில் ஸ்போடோப்டெரா மாற்றம்",
       "hello": "வணக்கம்"
     }
+  },
+  pt: {
+    translation: {
+      "bhoomi_setu": "Bhoomi Setu",
+      "farmer_anjali": "Fazendeira: Anjali (IN)",
+      "farmer_carlos": "Carlos (BR)",
+      "policymaker": "Continuar como Formulador de Políticas",
+      "report_practice": "Relatar Prática Regenerativa",
+      "pest_diagnosis": "Diagnóstico de Pragas",
+      "diagnose_crop": "Diagnosticar Cultura",
+      "my_passport": "Meu Passaporte",
+      "certificate": "Ver Certificados",
+      "about_brics": "Sobre Bhoomi Setu e BRICS",
+      "early_warning": "Sinal da rede: possível mutação de Spodoptera nas proximidades",
+      "hello": "Olá"
+    }
   }
 };
 
