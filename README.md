@@ -58,3 +58,10 @@ npm run dev
 - **Satellite Data**: The "satellite data" Gemini reasons over is a fixed, synthetic four-point NDTI series representing Sentinel-1/2 patterns. The reasoning is real; the data is simulated.
 
 *All simulated demo states can be cleared at any time via the "Reset Demo Data" button on the About page.*
+
+
+## Deploying the Backend
+1. Go to [vercel.com](https://vercel.com/) and create a new project from this repository.
+2. **Important**: Set the **Root Directory** to `backend` during setup.
+3. Add your `GEMINI_API_KEY` to the Environment Variables.
+4. Once deployed, copy the Vercel URL and update `VITE_API_URL` in your frontend `.env` file.
