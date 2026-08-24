@@ -9,7 +9,7 @@ app.use(express.json({ limit: '10mb' }));
 
 const genAI = process.env.GEMINI_API_KEY ? new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY }) : null;
 const PORT = process.env.PORT || 3000;
-const MODEL = "gemini-2.5-flash"; // Updated to current active model
+const MODEL = "gemini-3.6-flash"; // Updated to current active model
 
 // Seed Data
 const farmers = [
