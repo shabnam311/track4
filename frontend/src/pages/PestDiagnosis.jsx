@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck, Loader2, PhoneCall } from 'lucide-react';
 
 const PestDiagnosis = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const farmer = JSON.parse(localStorage.getItem('terrasync_farmer')) || { name: 'Anjali' };
   const [messages, setMessages] = useState([
