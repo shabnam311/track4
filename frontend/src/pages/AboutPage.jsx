@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, Shield, Globe, BookOpen } from 'lucide-react';
+import { ArrowLeft, Shield, Globe, BookOpen, Cpu, BarChart3, RefreshCw, CheckCircle2 } from 'lucide-react';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -9,57 +9,152 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-paper dark:bg-soil-900 font-sans pb-20 text-soil-900 dark:text-wheat-100 transition-colors duration-200">
-      <header className="bg-white dark:bg-soil-800 p-4 shadow-sm flex items-center gap-3 border-b border-transparent dark:border-white/10">
-        <button aria-label="Go Back" onClick={() => navigate('/')} className="text-soil-700 dark:text-wheat-400 hover:text-soil-900 dark:hover:text-white transition"><ArrowLeft /></button>
-        <h1 className="text-lg font-bold text-soil-900 dark:text-white">{t('about_page')}</h1>
+      {/* Top Header */}
+      <header className="sticky top-0 z-30 bg-white/90 dark:bg-soil-800/90 backdrop-blur-md p-4 shadow-sm flex items-center justify-between border-b border-black/5 dark:border-white/10">
+        <div className="flex items-center gap-3">
+          <button 
+            aria-label="Go Back" 
+            onClick={() => navigate('/')} 
+            className="p-2 rounded-lg text-soil-700 dark:text-wheat-400 hover:text-soil-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+          <div>
+            <h1 className="text-lg font-bold text-soil-900 dark:text-white">{t('about_page') || 'About TerraSync'}</h1>
+            <p className="text-xs text-soil-600 dark:text-wheat-400">Digital Public Good for Agricultural Resilience</p>
+          </div>
+        </div>
       </header>
 
-      <div className="p-6 max-w-2xl mx-auto space-y-8 mt-4">
-        <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10">
-          <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4 border border-transparent dark:border-blue-900/50">
-            <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+      <div className="p-6 max-w-3xl mx-auto space-y-8 mt-2">
+        {/* Mission Banner */}
+        <div className="bg-gradient-to-br from-leaf-700 to-soil-800 text-white p-7 rounded-3xl shadow-md relative overflow-hidden">
+          <div className="relative z-10 space-y-2">
+            <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold tracking-wide uppercase text-wheat-100">
+              National Digital Public Good
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight">Empowering Indian Farmers with Federated Intelligence</h2>
+            <p className="text-wheat-200 text-sm sm:text-base leading-relaxed pt-1 max-w-2xl">
+              TerraSync unites smallholders and policymakers by combining on-device AI pest diagnosis, Sentinel satellite verification for regenerative practices, and privacy-preserving cross-state intelligence.
+            </p>
           </div>
-          <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">National Alignment</h2>
-          <p className="text-soil-700 dark:text-wheat-400 leading-relaxed mb-4">
-            TerraSync is designed to act as a shared digital public good for the <strong>National Network on Digital Agriculture</strong> and the <strong>TerraSync</strong> initiative (Indore Declaration, June 2026).
+        </div>
+
+        {/* Core Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Pillar 1: National Alignment */}
+          <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10 space-y-3">
+            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center border border-blue-200 dark:border-blue-900/50">
+              <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h3 className="text-xl font-bold text-soil-900 dark:text-white">National & Global Alignment</h3>
+            <p className="text-soil-700 dark:text-wheat-400 text-sm leading-relaxed">
+              Designed as an open Digital Public Good aligned with the <strong>National Network on Digital Agriculture</strong> and the <strong>Centres of Excellence on Agro-Ecology</strong> (Indore Declaration, 2026).
+            </p>
+            <ul className="space-y-2 text-xs text-soil-600 dark:text-wheat-400 pt-1">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Enables verifiable eligibility for <strong>PM-KISAN green bonuses</strong> and carbon finance.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Architecture seamlessly scales to cross-border agricultural corridors across <strong>BRICS</strong> nations.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* Pillar 2: Federated Learning */}
+          <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10 space-y-3">
+            <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center border border-green-200 dark:border-green-900/50">
+              <Shield className="w-6 h-6 text-leaf-600 dark:text-leaf-400" />
+            </div>
+            <h3 className="text-xl font-bold text-soil-900 dark:text-white">Privacy-First Federated Radar</h3>
+            <p className="text-soil-700 dark:text-wheat-400 text-sm leading-relaxed">
+              Protects smallholder data sovereignty by design. Raw photos and plot telemetry <strong>never leave the farmer's device</strong>.
+            </p>
+            <ul className="space-y-2 text-xs text-soil-600 dark:text-wheat-400 pt-1">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Only anonymized statistical threat gradients cross state lines (e.g., MP to Tamil Nadu).</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Triggers proactive early warnings before invasive pests (like Spodoptera) spread across regions.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* Pillar 3: Satellite Verification & Regen Passport */}
+          <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10 space-y-3">
+            <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center border border-amber-200 dark:border-amber-900/50">
+              <BookOpen className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            </div>
+            <h3 className="text-xl font-bold text-soil-900 dark:text-white">Satellite-Verified Passports</h3>
+            <p className="text-soil-700 dark:text-wheat-400 text-sm leading-relaxed">
+              Eliminates "verification poverty" for smallholders. Uses free <strong>Sentinel-1/2 SAR & NDTI time-series</strong> data to cryptographically verify practices (no-till, cover cropping).
+            </p>
+            <ul className="space-y-2 text-xs text-soil-600 dark:text-wheat-400 pt-1">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Issues tamper-evident, print-ready certificates with offline-scannable Level-M QR credentials.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Replaces prohibitive $100+/acre manual certification fees with automated satellite reasoning.</span>
+              </li>
+            </ul>
+          </section>
+
+          {/* Pillar 4: Multimodal Google AI Engine */}
+          <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10 space-y-3">
+            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center border border-purple-200 dark:border-purple-900/50">
+              <Cpu className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            </div>
+            <h3 className="text-xl font-bold text-soil-900 dark:text-white">Multimodal Google Gemini AI</h3>
+            <p className="text-soil-700 dark:text-wheat-400 text-sm leading-relaxed">
+              Powered by Google's latest <strong>Gemini Flash</strong> model via the official <code className="text-xs bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded">@google/genai</code> SDK.
+            </p>
+            <ul className="space-y-2 text-xs text-soil-600 dark:text-wheat-400 pt-1">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Few-shot conversational intelligence auto-detects English, Hindi, Tamil, and other regional dialects.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0 mt-0.5" />
+                <span>Provides real-time agronomic remedies, dosage advice, and agronomist callback escalation.</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        {/* Policymaker & Compound Risk Section */}
+        <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10 space-y-3">
+          <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center border border-emerald-200 dark:border-emerald-900/50">
+            <BarChart3 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+          </div>
+          <h3 className="text-xl font-bold text-soil-900 dark:text-white">National Compound Risk Intelligence</h3>
+          <p className="text-soil-700 dark:text-wheat-400 text-sm leading-relaxed">
+            The National Dashboard correlates biological pest outbreak hotspots with satellite-verified soil resilience metrics to compute <strong>Compound Risk Districts</strong>. Policymakers can instantly export actionable CSV briefs for targeted budgetary allocation and emergency pesticide subsidies.
           </p>
-          <ul className="space-y-3 text-sm text-soil-700 dark:text-wheat-400">
-            <li className="flex gap-2">
-              <span className="text-leaf-600 dark:text-leaf-400 font-bold">•</span>
-              <span>Plugs directly into the <strong>Centres of Excellence on Agro-Ecology and Regenerative Agriculture</strong>.</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-leaf-600 dark:text-leaf-400 font-bold">•</span>
-              <span>Protects smallholder data sovereignty by design.</span>
-            </li>
-          </ul>
         </section>
 
-        <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10">
-          <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4 border border-transparent dark:border-green-900/50">
-            <Shield className="w-6 h-6 text-green-600 dark:text-green-400" />
+        {/* Demo Management Section */}
+        <div className="bg-soil-100/50 dark:bg-soil-800/50 p-6 rounded-2xl border border-black/5 dark:border-white/10 text-center space-y-4">
+          <div>
+            <h4 className="font-bold text-soil-900 dark:text-white text-base">Demo Environment Management</h4>
+            <p className="text-xs text-soil-600 dark:text-wheat-400 max-w-md mx-auto pt-1">
+              Reset stored test practices, local verification certificates, and persona preferences to their original clean state.
+            </p>
           </div>
-          <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">Data Sovereignty First</h2>
-          <p className="text-soil-700 dark:text-wheat-400 leading-relaxed">
-            Unlike centralized agricultural platforms, TerraSync uses <strong>Federated Learning</strong>. When a farmer reports a crop disease, the raw photo <em>never leaves their device</em>. Only statistical model updates (parameter gradients) cross district/state borders to update the shared threat radar.
-          </p>
-        </section>
-
-        <section className="bg-white dark:bg-soil-800 p-6 rounded-2xl shadow-sm border border-black/5 dark:border-white/10">
-          <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mb-4 border border-transparent dark:border-yellow-900/50">
-            <BookOpen className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-          </div>
-          <h2 className="text-2xl font-bold text-soil-900 dark:text-white mb-2">Bankable Proof</h2>
-          <p className="text-soil-700 dark:text-wheat-400 leading-relaxed">
-            Advising farmers on regenerative practices isn't enough. TerraSync uses <strong>Sentinel-1/2 satellite data</strong> to generate portable, hash-anchored verification certificates. This lowers the cost of verification for smallholders, allowing them to finally access green subsidies and carbon markets.
-          </p>
-        </section>
-        
-        <div className="flex justify-center mt-8">
           <button 
-            onClick={() => { localStorage.clear(); alert('Demo data reset. Please refresh.'); }} 
-            className="px-6 py-3 bg-red-500/10 dark:bg-red-900/20 hover:bg-red-500/20 dark:hover:bg-red-900/40 text-red-700 dark:text-red-400 font-bold rounded-xl transition border border-red-500/20 dark:border-red-900/50"
+            onClick={() => { 
+              localStorage.clear(); 
+              alert('Demo data has been reset to defaults. The page will now reload.'); 
+              window.location.reload();
+            }} 
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-500/10 dark:bg-red-900/20 hover:bg-red-500/20 dark:hover:bg-red-900/40 text-red-700 dark:text-red-400 text-sm font-bold rounded-xl transition border border-red-500/20 dark:border-red-900/50 cursor-pointer"
           >
+            <RefreshCw className="w-4 h-4" />
             {t('reset_demo') || 'Reset Demo Data'}
           </button>
         </div>
