@@ -15,7 +15,7 @@ const Certificate = () => {
   };
   
   const displayPractice = verification.practice_type === 'cover-crop' ? 'Cover Cropping' : verification.practice_type === 'mulch' ? 'Residue Mulching' : 'No-Till Farming';
-  const payload = `bhoomisetu.demo/verify/0x8f2a9c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t-${farmer.id || 'F001'}`;
+  const payload = `https://terrasync.gov.in/verify/0x8f2a9c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t-${farmer.id || 'F001'}`;
   const hash = payload.substring(payload.length - 20) || '0x...';
 
   return (

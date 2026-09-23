@@ -12,6 +12,7 @@ const healthRoutes = require('./routes/health');
 const plotsRoutes = require('./routes/plots');
 const pestRoutes = require('./routes/pest');
 const practicesRoutes = require('./routes/practices');
+const agriRoutes = require('./routes/agriData');
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use('/api/health', healthRoutes);
 app.use('/api/plots', plotsRoutes);
 app.use('/api/pest', pestRoutes);
 app.use('/api/practices', practicesRoutes);
+app.use('/api/agri', agriRoutes);
 
 // Centralized error handler (must be after routes)
 app.use(errorHandler);

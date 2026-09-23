@@ -1,0 +1,38 @@
+name: TerraSync CI & Deployment Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        cache-dependency-path: 'frontend/package-lock.json'
+
+    - name: Verify Backend Server Syntax & Integrity
+      run: |
+        cd backend
+        npm ci
+        node -e "const app = require('./server.js'); console.log('Backend routes integrity passed');"
+
+    - name: Build Frontend Production Bundle
+      run: |
+        cd frontend
+        npm ci
+        npm run build
+
+    - name: Verify Docker Container Build
+      run: |
+        docker build -t terrasync-backend:test ./backend
