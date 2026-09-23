@@ -64,6 +64,11 @@ const LandingPage = () => {
           <LangBtn code="gu" label="GU" currentLang={i18n.language} changeLanguage={changeLanguage} />
           <LangBtn code="bn" label="BN" currentLang={i18n.language} changeLanguage={changeLanguage} />
           <LangBtn code="te" label="TE" currentLang={i18n.language} changeLanguage={changeLanguage} />
+          <LangBtn code="kn" label="KN" currentLang={i18n.language} changeLanguage={changeLanguage} />
+          <LangBtn code="ml" label="ML" currentLang={i18n.language} changeLanguage={changeLanguage} />
+          <LangBtn code="or" label="OR" currentLang={i18n.language} changeLanguage={changeLanguage} />
+          <LangBtn code="as" label="AS" currentLang={i18n.language} changeLanguage={changeLanguage} />
+          <LangBtn code="ur" label="UR" currentLang={i18n.language} changeLanguage={changeLanguage} />
           <button 
             onClick={() => setIsDark(!isDark)}
             className="ml-2 p-1.5 rounded-full border border-black/15 dark:border-white/10 bg-transparent text-soil-700 dark:text-wheat-400 hover:bg-black/5 dark:hover:bg-white/5 transition"

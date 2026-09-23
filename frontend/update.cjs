@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+const fs = require('fs');
+const content = `import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Camera, Send, ImageIcon, AlertTriangle, ShieldCheck, Loader2, PhoneCall, X } from 'lucide-react';
@@ -8,7 +9,7 @@ const PestDiagnosis = () => {
   const navigate = useNavigate();
   const farmer = JSON.parse(localStorage.getItem('terrasync_farmer')) || { name: 'Anjali' };
   const [messages, setMessages] = useState([
-    { sender: 'bot', type: 'text', text: `${t('hello')} ${farmer.name}! Take a photo of the crop problem, or type a description.` }
+    { sender: 'bot', type: 'text', text: \`\${t('hello')} \${farmer.name}! Take a photo of the crop problem, or type a description.\` }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -66,7 +67,7 @@ const PestDiagnosis = () => {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-      const res = await fetch(`${apiUrl}/api/pest/diagnose`, {
+      const res = await fetch(\`\${apiUrl}/api/pest/diagnose\`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -120,12 +121,12 @@ const PestDiagnosis = () => {
         </div>
 
         {messages.map((m, i) => (
-          <div key={i} className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[85%] p-4 rounded-2xl shadow-sm ${
+          <div key={i} className={\`flex \${m.sender === 'user' ? 'justify-end' : 'justify-start'}\`}>
+            <div className={\`max-w-[85%] p-4 rounded-2xl shadow-sm \${
               m.sender === 'user' 
                 ? 'bg-soil-900 dark:bg-soil-800 text-wheat-100 rounded-tr-none border border-transparent dark:border-white/10' 
                 : 'bg-white dark:bg-soil-800 text-soil-900 dark:text-white border border-black/10 dark:border-white/10 rounded-tl-none'
-            }`}>
+            }\`}>
               {m.type === 'text' && <p>{m.text}</p>}
               
               {m.type === 'image' && (
@@ -230,3 +231,5 @@ const PestDiagnosis = () => {
 };
 
 export default PestDiagnosis;
+`;
+fs.writeFileSync('d:/track4/frontend/src/pages/PestDiagnosis.jsx', content);
